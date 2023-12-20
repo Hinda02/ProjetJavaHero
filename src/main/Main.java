@@ -21,8 +21,7 @@ public class Main {
 		public static List<Attribute> magicalWeaponsAttribute = new ArrayList<Attribute>();
 	    
 		public static List<Familiar> familiar = new ArrayList<Familiar>();
-	    
-		// player 
+	     
 		public static Scanner myObj = new Scanner(System.in);
 		
 		public static String choice;
@@ -38,7 +37,7 @@ public class Main {
 			
 	public static void main(String[] args) {
 		
-		//List 
+		//Lists
 
 		nonMagicalWeapons.add(WeaponType.Axe);
 		nonMagicalWeapons.add(WeaponType.Bow);
@@ -66,9 +65,14 @@ public class Main {
 		familiar.add(Familiar.Serpent);
 		
 		
+		//Intro to Story 
+		
+		System.out.println("Zeus a perdu son éclair divin ! Il est sûr que quelqu'un l'a volé pour \nréaliser de mauvais desseins. Il promet d'exaucer le voeu de celui ou celle qui le lui rendra.");
+		System.out.println("Vous décidez d'accepter cette quête. ");
+		
 		
 		    
-		
+		//Player's class
 		System.out.println("Choisis ton personnage parmis: (Saisissez une des classes suivantes)");
 		System.out.println("Humain _ Mage _ Ange _ Demon");
 
@@ -88,23 +92,28 @@ public class Main {
 	    
 		    case "Humain":
 		    	
-		    	WeaponType wT = nonMagicalWeapons();
+		    	WeaponType wTHuman = nonMagicalWeapons();
 		    	String wN = weaponName();
 		    	Material wM = nonMagicalWeaponMaterial();
-				NonMagicalWeapon w = new NonMagicalWeapon(wN, wT, wM);
+				NonMagicalWeapon w = new NonMagicalWeapon(wN, wTHuman, wM);
 				Familiar fam = familiar();
 				
 		    	player = new Human(nom, w, fam);
 		    	
 		    	break;
 		    	
-		   /* case "Mage":
+		   case "Mage":
 		    	
-		    	
-		    	player = new Mage(nom, w, familiarPlayer);
+		    	WeaponType wTMage = magicalWeapons();
+		    	String wNMage = weaponName();
+		    	Attribute wAMage = magicalWeaponAttribute();
+				MagicalWeapon mageWeapon = new MagicalWeapon(wNMage, wTMage, wAMage);
+				Familiar mageFam = familiar();
+				
+		    	player = new Mage(nom, mageWeapon, mageFam);
 		    	break;
 		    	
-		    case "Ange":
+		    /*case "Ange":
 		    	//player = new Angel(nom, w);
 		    	break;
 		    	
@@ -122,6 +131,9 @@ public class Main {
 				
 	}
 	
+	/**
+	 * used to customize the player's weapon (only for classes that can't wield magical weapons)
+	 */
 	public static  WeaponType nonMagicalWeapons(){
 		System.out.println("Choisis ton arme: (Saisissez le numéro de l'arme)");
     	
@@ -138,6 +150,9 @@ public class Main {
 		
 	}
 	
+	/**
+	 * used to customize the player's weapon (only for classes that can wield magical weapons)
+	 */
 	public static  WeaponType magicalWeapons(){
 		System.out.println("Choisis ton arme: (Saisissez le numéro de l'arme)");
     	
@@ -154,6 +169,9 @@ public class Main {
 		
 	}
 	
+	/**
+	 * used to customize the player's weapon's name 
+	 */
 	public static String weaponName() {
 		System.out.println("Choisis le nom de ton arme:");
 		weaponN = myObj.next();
@@ -162,6 +180,9 @@ public class Main {
 		
 	}
 	
+	/**
+	 * used to customize the player's weapon's material (only for classes that can't wield magical weapons)
+	 */
 	public static Material nonMagicalWeaponMaterial() {
 		System.out.println("Choisis le matériel de ton arme: (Saisissez le numéro du matériel de l'arme)");
 		int j = 0;
@@ -174,6 +195,9 @@ public class Main {
 		return wM;
 	}
 	
+	/**
+	 * used to customize the player's weapon's attribute (only for classes that can wield magical weapons)
+	 */
 	public static Attribute magicalWeaponAttribute() {
 		System.out.println("Choisis l'attribut de ton arme: (Saisissez le numéro du matériel de l'arme)");
 		int j = 0;
@@ -186,6 +210,9 @@ public class Main {
 		return wA;
 	}
 	
+	/**
+	 * used to customize the player's familiar (only for humans and mages)
+	 */
 	public static Familiar familiar() {
 		System.out.println("Choisis ton familier : ");
 		
