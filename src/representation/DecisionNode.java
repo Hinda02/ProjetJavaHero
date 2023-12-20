@@ -25,7 +25,7 @@ public class DecisionNode extends InnerNode{
 			
 			int i = 0;
 			
-			System.out.println("Saisissez le num�ro de votre choix:");
+			System.out.println("Saisissez le numéro de votre choix:");
 			
 	        for(Event item : this.nodes) {
               i++;

@@ -25,6 +25,7 @@ public class InnerNode extends Node{
 	 * @param description
 	 * @param nodes
 	 */
+	
 	public InnerNode(int id, String description, List<Event> nodes) {
 		super(id, description);
 		
@@ -32,6 +33,10 @@ public class InnerNode extends Node{
 			this.nodes.add(node);
 		}
 		
+	}
+
+	public List<Event> getNodes() {
+		return nodes;
 	}
 
 	/**
@@ -64,7 +69,7 @@ public class InnerNode extends Node{
 		//this.display();
 			
 		opponent.speak();
-		System.out.println("Attaquez l'ennemi en r�pondant correctement aux calculs.");
+		System.out.println("Attaquez l'ennemi en répondant correctement aux calculs.");
 		
 		//_____________ The opponent's fighting section ____________
 		//defines a runnable that executes the enemy's fight() method
