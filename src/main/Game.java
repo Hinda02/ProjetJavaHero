@@ -124,7 +124,7 @@ public class Game {
 	    
 	    //Mage nodes
 	    
-// Mage
+	    // Mage
 	    
 	    Node mageKeepStormDesc = new TerminalNode(101, "Vous decidez de garder l'éclair de Zeus. \nEn effet, c'est la juste récompense pour avoir traversé tous ses obstacles. \nVotre décision plonge le monde dans le chaos et provoque la colère de Zeus et des autres Dieux. \nVous survivez au chaos grâce à l'éclair.");
 	    Node mageGiveStormDesc = new TerminalNode(102, "Vous rendez l'éclair divin à son propriétaire. \nAinsi, vous ramenez le calme dans la monde. \nDe plus, Zeus vous exauce votre voeu le plus cher. \nVOUS ÊTES UN GRAND HEROS !");
@@ -345,7 +345,7 @@ public class Game {
 	    while(!(currentNode.getDecoratedNode() instanceof TerminalNode)) {
 	    	if(currentNode.equals(mageAchillesClemence)) {
 	    		//ajouter pv
-	    		player.setHp(player.getHp()+100);
+	    		player.setHp(player.getHp()+10);
 	    	}
 	    		    	
 	    	
