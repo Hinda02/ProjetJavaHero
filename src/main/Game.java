@@ -110,7 +110,7 @@ public class Game {
 		    	currentNode = node1;
 		    	break;
 		    	
-		   case "Mage":
+			case "Mage":
 			   System.out.println("Vos recherches vous amènent jusqu'à l'Olympe, le territoire des Dieux. \nUn des Olympiens (Dieux siègeant à l'Olympe) serait le coupable de ce vol...\nMais qui ?");
 			   currentNode = node1;
 			   break;
@@ -121,11 +121,13 @@ public class Game {
 			
 		case "Demon":
 			//player = new Demon(nom, w);
-			break;
-			
-		default:
-			//player = new Human(nom, w, familiarPlayer);
 			break;*/
+			
+		   default:
+			   System.out.println("Vos recherches vous amènent jusqu'aux Enfers, le territoire d'Hades. \nPour entrer il vous faudra passer les serviteurs du roi des Enfers, notamment : \nCerberus et Charon. La première étape est Cerberus");
+			   currentNode = node1;
+			   break;
+	    	
 		}
 		
 		

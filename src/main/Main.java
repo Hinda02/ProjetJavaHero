@@ -119,11 +119,17 @@ public class Main {
 		    	
 		    case "Demon":
 		    	//player = new Demon(nom, w);
-		    	break;
+		    	break;*/
 		    	
 		    default:
-		    	//player = new Human(nom, w, familiarPlayer);
-		    	break;*/
+		    	WeaponType wTDefault = nonMagicalWeapons();
+		    	String wNameD = weaponName();
+		    	Material wD = nonMagicalWeaponMaterial();
+				NonMagicalWeapon wDefault = new NonMagicalWeapon(wNameD, wTDefault , wD);
+				Familiar famDefault = familiar();
+				
+		    	player = new Human(nom, wDefault, famDefault);
+		    	break;
 	    }
 		
 	    
