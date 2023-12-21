@@ -33,6 +33,7 @@ public class Main {
 		public static int familiarP;
 		public static int attribute;
 		public static String playerType;
+		public static String choix;
 
 			
 	public static void main(String[] args) {
@@ -77,7 +78,7 @@ public class Main {
 		System.out.println("Humain _ Mage _ Ange _ Demon");
 
 		//get player input
-	    choice = myObj.next(); 
+	    choice = myObj.next().toLowerCase(); 
 	    
 		System.out.println("Personnalise ton personnage:");
 		System.out.println("Nom:");
@@ -90,8 +91,7 @@ public class Main {
 		//Create player object
 	    switch(choice) {
 	    
-		    case "Humain":
-		    	
+		    case "humain":
 		    	WeaponType wTHuman = nonMagicalWeapons();
 		    	String wN = weaponName();
 		    	Material wM = nonMagicalWeaponMaterial();
@@ -102,8 +102,7 @@ public class Main {
 		    	
 		    	break;
 		    	
-		   case "Mage":
-		    	
+		   case "mage":
 		    	WeaponType wTMage = magicalWeapons();
 		    	String wNMage = weaponName();
 		    	Attribute wAMage = magicalWeaponAttribute();
@@ -113,13 +112,57 @@ public class Main {
 		    	player = new Mage(nom, mageWeapon, mageFam);
 		    	break;
 		    	
-		    /*case "Ange":
-		    	//player = new Angel(nom, w);
+		    case "ange":
+		    	System.out.println("Souhaitez-vous utiliser une arme magique ou nm (Saisissez m ou nm)");
+		    	choix = myObj.next();
+		    	WeaponType wTAngel = null;
+		    	String wNAngel = null;
+		    	Weapon angelWeapon = null;
+		    	
+		    	if(choix.equals("m")) {
+		    		wTAngel = magicalWeapons();
+		    		Attribute wAAngel = magicalWeaponAttribute();
+		    		wNAngel = weaponName();
+		    		angelWeapon = new MagicalWeapon(wNAngel, wTAngel, wAAngel);
+		    		
+		    	}else if (choix.equals("nm")){
+		    		wTAngel = nonMagicalWeapons();
+		    		Material wMAngel = nonMagicalWeaponMaterial();
+		    		wNAngel = weaponName();
+		    		angelWeapon = new NonMagicalWeapon(wNAngel, wTAngel, wMAngel);
+		    		
+		    	}
+		    	
+				
+		    	player = new Angel(nom, angelWeapon);
+		    	
 		    	break;
 		    	
-		    case "Demon":
-		    	//player = new Demon(nom, w);
-		    	break;*/
+		    case "demon":
+		    	
+		    	System.out.println("Souhaitez-vous utiliser une arme magique ou nm (Saisissez m ou nm)");
+		    	choix = myObj.next();
+		    	WeaponType wTDemon = null;
+		    	String wNDemon = null;
+		    	Weapon demonWeapon = null;
+		    	
+		    	if(choix.equals("m")) {
+		    		wTDemon = magicalWeapons();
+		    		Attribute wADemon = magicalWeaponAttribute();
+		    		wNDemon = weaponName();
+		    		demonWeapon = new MagicalWeapon(wNDemon, wTDemon, wADemon);
+		    		
+		    	}else if (choix.equals("nm")){
+		    		wTDemon = nonMagicalWeapons();
+		    		Material wMDemon = nonMagicalWeaponMaterial();
+		    		wNDemon = weaponName();
+		    		demonWeapon = new NonMagicalWeapon(wNDemon, wTDemon, wMDemon);
+		    		
+		    	}
+				
+		    	player = new Demon(nom, demonWeapon);
+		    	
+		    	break;
 		    	
 		    default:
 		    	WeaponType wTDefault = nonMagicalWeapons();
@@ -142,7 +185,6 @@ public class Main {
 	 */
 	public static  WeaponType nonMagicalWeapons(){
 		System.out.println("Choisis ton arme: (Saisissez le numéro de l'arme)");
-    	
 		int i = 0;
 		for(WeaponType item : nonMagicalWeapons) {
 			i++;
@@ -190,7 +232,7 @@ public class Main {
 	 * used to customize the player's weapon's material (only for classes that can't wield magical weapons)
 	 */
 	public static Material nonMagicalWeaponMaterial() {
-		System.out.println("Choisis le matériel de ton arme: (Saisissez le numéro du matériel de l'arme)");
+		System.out.println("Choisis ton arme: (Saisissez le numéro de l'arme)");
 		int j = 0;
 		for(Material item : nonMagicalWeaponsMaterial) {
 			j++;
