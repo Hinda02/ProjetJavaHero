@@ -60,8 +60,20 @@ public abstract class Personage implements Fighter, Killable{
 		
 	}
 	
+	/**
+	 * abstract method that deducts damage points from the opponent's hp level
+	 */
+	public abstract void fight(Personage opponent);
+	
+	/**
+	 * abstract method that heals the personage
+	 */
+	public abstract void heal();
 	
 	
+	/**
+	 * deducts hp points depending of the enemy's attack
+	 */
 	public void receiveDamage(int damage) {
 
 		if(this.getHp() > 0) {
@@ -73,6 +85,51 @@ public abstract class Personage implements Fighter, Killable{
 			this.die();
 		}
 		
+	}
+	
+
+	/**
+	 * returns the personage's info
+	 * @return String
+	 */
+	@Override
+	public String toString() {
+
+		String result = name + " est ";
+		
+		if(alive) {
+			result += "en vie.\n";
+		}else {
+			result += "mort.\n";
+		}
+		
+		result += "Points de vie: " + hp  + ". \nArme équipée: " + weapon + ".";
+		
+		return result;
+		
+	}
+	
+	/**
+	 * compares two objects of type Personage
+	 * @return boolean
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if(obj == this) {
+			return true;
+		}
+		
+		if (!(obj instanceof Personage)) {
+			return false;
+		}
+		
+		Personage personage = (Personage) obj;
+		
+		if((this.name == personage.name) && (this.alive == personage.alive) && (this.hp == personage.hp) && (this.weapon.equals(personage.weapon))) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 }
