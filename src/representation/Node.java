@@ -1,6 +1,7 @@
 package representation;
 
 import univers.personage.*;
+import univers.tools.Item;
 
 public abstract class Node implements Event{
 	
@@ -51,7 +52,7 @@ public abstract class Node implements Event{
 	 * @param player
 	 * @return Node
 	 */
-	public Event chooseNext(Hero player) {
+	public Event chooseNext(Hero player, Item item) {
 		return null;
 	}
 	
