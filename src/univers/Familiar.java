@@ -25,7 +25,8 @@ public enum Familiar implements Fighter{
 	    String result = this.name() + " est un familier dont le niveau de puissance est de : " + this.power ;
 	    return result;
 	}
-
+    
+    
 	@Override
 	public void fight(Personage opponent) {
 		opponent.receiveDamage(this.getPower());
