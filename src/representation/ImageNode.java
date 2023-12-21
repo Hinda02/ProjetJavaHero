@@ -2,6 +2,7 @@ package representation;
 
 import java.awt.Color;
 import java.awt.Container;
+
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -13,26 +14,29 @@ import univers.personage.Villain;
 
 public class ImageNode extends Decorator {
 	
-	private String path;
+	private String imagePath;
     
+	/**
+	 * Constructor of ImageNode class
+	 * @param decoratedNode
+	 * @param imagePath
+	 */
     public ImageNode(Event decoratedNode, String imagePath) {
-        this.decoratedNode = decoratedNode; 
-        this.path = imagePath;
+        super(decoratedNode); 
+        this.imagePath = imagePath;
     }
 
-	
+	/**
+	 * displays the information about the decorated node
+	 */
 	@Override
 	public void display() {
-		//closeImage();
         decoratedNode.display(); 
     }
-
-	@Override
-	public Event chooseNext() {
-		showImage();
-		return decoratedNode.chooseNext();
-	}
 	
+	/**
+	 * Method that displays the node's image
+	 */
 	private void showImage() {
     	try {
 			JFrame window;
@@ -55,7 +59,7 @@ public class ImageNode extends Decorator {
 	    	
 	    	pictureLabel = new JLabel();
 	    	
-	    	image = new ImageIcon(path);
+	    	image = new ImageIcon(imagePath);
 	    	pictureLabel.setIcon(image);
 	    	picturePanel.add(pictureLabel);
 	    	
@@ -64,25 +68,65 @@ public class ImageNode extends Decorator {
     		e.printStackTrace();
     }
     }
+	/**
+	 * Method that returns the next node
+	 * @return Event
+	 */
+	@Override
+	public Event chooseNext() {
+		showImage();
+		return decoratedNode.chooseNext();
+	}
 	
-	/*private void closeImage() {
-        if (window != null && window.isDisplayable()) { // si rien ne s'affiche mais que ce n'est pas null
-            window.dispose(); // tout enlever
-        }
-    }*/
-
-
+	/**
+	 * Method that returns the next node
+	 * used for combat classes (InnerNode)
+	 * @param player
+	 * @param opponent
+	 * @return Event
+	 */
 	@Override
 	public Event chooseNext(Hero hero, Villain villain) {
 		showImage();
 		return decoratedNode.chooseNext(hero,villain);
 	}
 
-
+	/**
+	 * returns the next node according to whether 
+	 * the player's inventory contains a certain item or not
+	 * @param player
+	 * @return Node
+	 */
 	@Override
 	public Event chooseNext(Hero player) {
 		showImage();
 		return decoratedNode.chooseNext(player);
 	}
-
+	
+	/**
+	 * returns the ImageNode's info
+	 * @return String
+	 */
+	@Override
+	public String toString() {
+		return "ImageNode [decoratedNode = "+ decoratedNode + " , imagePath=" + imagePath + "]";
+	}
+	
+	/**
+	 * compares two objects of type ImageNode
+	 * @return boolean
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!(obj instanceof ImageNode))
+			return false;
+		ImageNode imageNode = (ImageNode) obj;
+		if (!(super.equals(imageNode)) && !(this.imagePath.equals(imageNode.imagePath)))
+			return false;
+		return true;
+	}
+	
+	
 }

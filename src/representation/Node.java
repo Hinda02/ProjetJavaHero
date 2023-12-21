@@ -18,10 +18,7 @@ public abstract class Node implements Event{
 		this.id = id;
 		this.description = description;
 	}
-
-	public String getDescription() {
-		return description;
-	}
+	
 
 	/**
 	 * Method that displays node description
@@ -42,7 +39,7 @@ public abstract class Node implements Event{
 	 * used for combat classes (InnerNode)
 	 * @param player
 	 * @param opponent
-	 * @return Node
+	 * @return Event
 	 */
 	public Event chooseNext(Hero player, Villain opponent) {
 		return null;
@@ -56,6 +53,14 @@ public abstract class Node implements Event{
 	 */
 	public Event chooseNext(Hero player) {
 		return null;
+	}
+	
+	/**
+	 * returns the node's description
+	 * @return String
+	 */
+	public String getDescription() {
+		return description;
 	}
 	
 	/**

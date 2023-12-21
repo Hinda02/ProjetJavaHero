@@ -17,7 +17,7 @@ public class ChanceNode extends InnerNode{
 	}
 	
 	/**
-	 * returns a random node from in between 2
+	 * returns a random node 
 	 */
 	@Override
 	public Event chooseNext() {
