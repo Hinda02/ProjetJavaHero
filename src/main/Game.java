@@ -156,7 +156,7 @@ public class Game {
 	    Event line11 = new DecisionNode(211, "Meeting the Orale: he explains Zeus' will to exterminate humans.", Arrays.asList(line16, line13));
 	    Event line12 = new InnerNode(212, "You need to fight the gardian angel", Arrays.asList(line11, line19));
 
-	    Event line10 = new InnerNode(210, "You come across a gardian angel. Name the artefact the titans dropped to avoid a fight.", Arrays.asList(line11, line12));
+	    Event line10 = new InnerNode(210, "You come across a gardian angel.", Arrays.asList(line11, line12));
 	    Event line9 = new TerminalNode(209, "Death by Titans");
 	    Event line6 = new InnerNode(206, "Humans are distressed over a certain rumor circulating about Zeus.", Arrays.asList(line10));
 	    Event line8 = new TerminalNode(208, "Death by Humans");
@@ -454,8 +454,19 @@ public class Game {
 			    		currentNode = currentNode.chooseNext(player, people);
 			    	}else if (currentNode.equals(line7)) {
 			    		currentNode = currentNode.chooseNext(player, titans);
+			    		
+			    		if (!(currentNode instanceof TerminalNode)) {
+			    			System.out.println("Name the artefact the titans dropped to avoid a fight with the gardian angel.");
+			    			String rep = myObj.next().toLowerCase();
+				    		if(rep.equals("will")) {
+				    			player.getInventory().put(Item.WillOfOracle, 1);
+				    		}
+			    		}
+			    		
 			    	}else if (currentNode.equals(line12)) {
 			    		currentNode = currentNode.chooseNext(player, gAngel);
+			    	}else {
+			    		currentNode = currentNode.chooseNext(player, zeus);
 			    	}
 	    			
 	    		}
@@ -502,36 +513,44 @@ public class Game {
 	    				
 	    				if(player instanceof Demon) {
 	    					currentNode = line4;
+	    					//currentNode.display();
 	    				}else {
 	    					currentNode = line6;
+	    					//currentNode.display();
 	    				}
 
 			    	}else if (currentNode.equals(line10)) {
 			    		
-			    		String rep = myObj.next().toLowerCase();
-			    		if(rep.equals("will of the oracle")) {
-			    			player.getInventory().put(Item.WillOfOracle, 1);
-			    		}
-			    		
 			    		currentNode = currentNode.chooseNext(player, Item.WillOfOracle);
-			    	}
+			    	}else 
+    		    	{
+    			    	currentNode = currentNode.chooseNext();
+
+    		    	}
 	    			
 	    		}
-		    	
-		    	if(currentNode.equals(sn6)) {
-		    		
-		    		String rep = myObj.next().toLowerCase();
-		    		if(rep.equals("obole")) {
-		    			player.getInventory().put(Item.OboleOfCharon, 1);
-		    		}
-		    		
-		    		currentNode = currentNode.chooseNext(player, Item.OboleOfCharon);
-		    		
-		    	}else 
-		    	{
-			    	currentNode = currentNode.chooseNext();
+    			
+    			if(player instanceof Human) {
+    				
+    				if(currentNode.equals(sn6)) {
+    		    		
+    		    		String rep = myObj.next().toLowerCase();
+    		    		if(rep.equals("obole")) {
+    		    			player.getInventory().put(Item.OboleOfCharon, 1);
+    		    		}
+    		    		
+    		    		currentNode = currentNode.chooseNext(player, Item.OboleOfCharon);
+    		    		
+    		    	}else 
+    		    	{
+    			    	currentNode = currentNode.chooseNext();
 
-		    	}
+    		    	}
+    			}
+    			
+    			if(player instanceof Human) {
+    				currentNode = currentNode.chooseNext();
+    			}
 		    }
 		   
 		    
