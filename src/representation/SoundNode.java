@@ -5,6 +5,7 @@ import javax.sound.sampled.*;
 
 import univers.personage.Hero;
 import univers.personage.Villain;
+import univers.tools.Item;
 
 public class SoundNode extends Decorator{
 
@@ -69,9 +70,9 @@ public class SoundNode extends Decorator{
 	 * @return Node
 	 */
 	@Override
-	public Event chooseNext(Hero hero) {
+	public Event chooseNext(Hero hero, Item item) {
 		playSound();
-		return decoratedNode.chooseNext(hero);
+		return decoratedNode.chooseNext(hero, item);
 	}
 	
 	/**

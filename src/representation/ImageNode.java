@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 import univers.personage.Hero;
 import univers.personage.Villain;
+import univers.tools.Item;
 
 
 public class ImageNode extends Decorator {
@@ -98,9 +99,9 @@ public class ImageNode extends Decorator {
 	 * @return Node
 	 */
 	@Override
-	public Event chooseNext(Hero player) {
+	public Event chooseNext(Hero player, Item item) {
 		showImage();
-		return decoratedNode.chooseNext(player);
+		return decoratedNode.chooseNext(player, item);
 	}
 	
 	/**
