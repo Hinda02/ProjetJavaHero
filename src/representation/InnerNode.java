@@ -48,11 +48,11 @@ public class InnerNode extends Node{
 	}
 	
 	/**
-	 * For 'obole' management
+	 * For 'item' management
 	 */
 	@Override
-	public Event chooseNext(Hero player) {
-		if(player.getInventory().containsKey(Item.OboleOfCharon)) {
+	public Event chooseNext(Hero player, Item item) {
+		if(player.getInventory().containsKey(item)) {
 			return this.nodes.get(0);
 		}else {
 			return this.nodes.get(1);
