@@ -3,10 +3,8 @@ package univers.personage;
 import univers.tools.Item;
 import univers.tools.Weapon;
 
-//class inherits from Personage
 public class Angel extends Hero{
 
-	//private attribute
 	private int blessing;
 
 	/**
@@ -36,35 +34,11 @@ public class Angel extends Hero{
 	protected void setBlessing(int blessing) {
 		this.blessing = blessing;
 	}
-
-
 	
-	@Override
-	public String toString() {
-		
-		String result = super.toString() + " \nPuissance de b�n�diction : " + blessing + ".";
-		
-		return result;
-	}
-	
-	@Override
-	public boolean equals(Object obj) {
-		
-		if(!(obj instanceof Angel)) {
-			return false;
-		}
-		
-		Angel thing = (Angel) obj;
-		
-		if(super.equals(thing) && (this.blessing == thing.blessing)) {
-			return true;
-		}else {
-			return false;
-		}
-		
-	}
-
-
+	/**
+	 * heals the angel if the inventory contains healing power or by using the blessing capacity 
+	 * it can be used only once
+	 */
 	@Override
 	public void heal() {
 		
@@ -76,6 +50,42 @@ public class Angel extends Hero{
 		}
 		
 	}
+
+	/**
+	 * returns the Angel's info
+	 */
+	@Override
+	public String toString() {
+		
+		String result = super.toString() + " \nPuissance de bénédiction : " + blessing + ".";
+		
+		return result;
+	}
+	
+	/**
+	 * compares two object of type Angel
+	 * @param object to compare with 
+	 * @return boolean 
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		
+		if(!(obj instanceof Angel)) {
+			return false;
+		}
+		
+		Angel angel = (Angel) obj;
+		
+		if(super.equals(angel) && (this.blessing == angel.blessing)) {
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
+
+
+	
 
 
 	
