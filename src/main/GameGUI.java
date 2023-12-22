@@ -30,7 +30,7 @@ public class GameGUI {
 
         // Create components
         
-        label = new JLabel("Welcome to Mythology Hero Game ! ");
+        label = new JLabel("Welcome to Mythology Heroes ! ");
         label.setHorizontalAlignment(SwingConstants.CENTER);
         Font font = new Font("Arial", Font.ROMAN_BASELINE, 15);
         label.setFont(font);
