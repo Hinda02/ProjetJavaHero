@@ -1,9 +1,11 @@
 package representation;
 
+import java.io.Serializable;
+
 import univers.personage.*;
 import univers.tools.Item;
 
-public abstract class Node implements Event{
+public abstract class Node implements Event, Serializable{
 	
 	//private attributes
 	private int id;

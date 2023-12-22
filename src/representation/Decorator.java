@@ -1,6 +1,8 @@
 package representation;
 
-public abstract class Decorator implements Event{
+import java.io.Serializable;
+
+public abstract class Decorator implements Event, Serializable{
 
 	protected Event decoratedNode;
 	

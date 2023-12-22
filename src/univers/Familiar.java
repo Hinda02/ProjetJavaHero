@@ -1,9 +1,11 @@
 package univers;
 
+import java.io.Serializable;
+
 import univers.personage.Fighter;
 import univers.personage.Personage;
 
-public enum Familiar implements Fighter{
+public enum Familiar implements Fighter, Serializable{
 	
 	Dragon(15), FoxSpirit(12), Merfolk(10),Phoenix(11), Serpent(9);
 

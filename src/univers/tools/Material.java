@@ -1,6 +1,8 @@
 package univers.tools;
 
-public enum Material {
+import java.io.Serializable;
+
+public enum Material implements Serializable{
 
 	Gold, Silver, Bronze, Iron;
 }

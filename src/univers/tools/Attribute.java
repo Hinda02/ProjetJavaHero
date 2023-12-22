@@ -1,6 +1,8 @@
 package univers.tools;
 
-public enum Attribute {
+import java.io.Serializable;
+
+public enum Attribute implements Serializable{
 	
 	Water, Wind, Fire, Earth;
 

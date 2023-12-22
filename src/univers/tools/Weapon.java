@@ -1,6 +1,8 @@
 package univers.tools;
 
-public abstract class Weapon {
+import java.io.Serializable;
+
+public abstract class Weapon implements Serializable {
 
 	private String name;
 	private int power;

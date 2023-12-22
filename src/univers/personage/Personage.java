@@ -1,8 +1,10 @@
 package univers.personage;
 
+import java.io.Serializable;
+
 import univers.tools.Weapon;
 
-public abstract class Personage implements Fighter, Killable{
+public abstract class Personage implements Fighter, Killable, Serializable{
 	
 	private String name;
 	private int hp;

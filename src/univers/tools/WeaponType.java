@@ -1,6 +1,8 @@
 package univers.tools;
 
-public enum WeaponType {
+import java.io.Serializable;
+
+public enum WeaponType implements Serializable{
 	
 	Sword, Spear, Bow, Axe, Orb, Harp, EvilEye;
 
