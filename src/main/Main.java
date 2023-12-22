@@ -115,6 +115,82 @@ public class Main {
 		public static Event line18;
 		public static Event line19;
 		
+		public static Event mageKeepStormDesc;
+		public static Event mageGiveStormDesc;
+		public static Event mageKeepStorm;
+		public static Event mageGiveStorm;
+		public static Event mageZeusLose;
+		public static Event mageZeusWin;
+		public static Event mageZeusFight;
+		public static Event mageWomenLose;
+		public static Event mageWomenWin;
+		public static Event mageWomenFight;
+		public static Event mageFollowWomen;
+		public static Event mageThetisTalk;
+		public static Event mageAchillesLose;
+		public static Event mageThetisRevenge;
+		public static Event mageHeadlessImpossible;
+		public static Event mageAchillesHeadChop;
+		public static Event mageAchillesClemence;
+		public static Event mageAchillesStandUp;
+		public static Event mageAchillesNothing;
+		public static Event mageAchillesHeel;
+		public static Event mageAchillesWin;
+		public static Event mageAchillesFight;
+		public static Event mageThetisMeet;
+		public static Event mageThetisFight;
+		public static Event mageThetis;
+		public static Event mageThetisCoupable;
+		public static Event mageLetStormDesc; 
+		public static Event mageLetStormHeraDesc;
+		public static Event mageLetStorm;
+		public static Event mageLetStormHera;
+		public static Event mageStormChoice;
+		public static Event mageAresDeath;
+		public static Event mageAresFight;
+		public static Event mageHeraDeath ;
+		public static Event mageHeraStormChoice;
+		public static Event mageHeraFight ;
+		public static Event mageAresOrHera;
+		public static Event mageHephaLost;
+		public static Event mageHephaWin;
+		public static Event mageHephaistosFight;
+		public static Event mageHephaistosMeet;
+		public static Event mageHeraHepha;
+		public static Event mageAgreeHera;
+		public static Event mageDisagreeDeath;
+		public static Event mageHypnosis;
+		public static Event mageNymphes;
+		public static Event mageDisagreeMiracle;
+		public static Event mageHeraKill;
+		public static Event mageHeraNotTalk;
+		public static Event mageOpinionHera;
+		public static Event mageDisagreeHera;
+		public static Event mageHeraTalk ;
+		public static Event mageHeraMeet;
+		public static Event mageFlowerPath;
+		public static Event mageHera;
+		public static Event magePosseidonWin;
+		public static Event magePosseidonLose;
+		public static Event magePosseidonFight;
+		public static Event magePosseidonMood;
+		public static Event magePosseidonTalk;
+		public static Event magePosseidonMeet;
+		public static Event mageFountainPath; 
+		public static Event mageOutLibrary;
+		public static Event mageJustAnOwl; 
+		public static Event mageAthenaClue; 
+		public static Event mageNotJustAnOwl;
+		public static Event mageOwlMeta; 
+		public static Event mageOwlScream; 
+		public static Event mageOwlHungry;
+		public static Event mageOwlFeed ;
+		public static Event mageOwlApproach; 
+		public static Event mageOwlNoApproach;
+		public static Event mageGoNextOwl;
+		public static Event mageNobody;
+		public static Event mageLibraryEntry;
+		public static  Event mage1 ;
 		
 		
 			
@@ -341,170 +417,170 @@ public class Main {
 			    
 			    //Mage nodes
 			    
-		// Mage
+			     // Mage
 			    
-			    Event mageKeepStormDesc = new TerminalNode(101, "Vous decidez de garder l'éclair de Zeus. \nEn effet, c'est la juste récompense pour avoir traversé tous ses obstacles. \nVotre décision plonge le monde dans le chaos et provoque la colère de Zeus et des autres Dieux. \nVous survivez au chaos grâce à l'éclair.");
-			    Event mageGiveStormDesc = new TerminalNode(102, "Vous rendez l'éclair divin à son propriétaire. \nAinsi, vous ramenez le calme dans la monde. \nDe plus, Zeus vous exauce votre voeu le plus cher. \nVOUS ÊTES UN GRAND HEROS !");
+			     mageKeepStormDesc = new TerminalNode(101, "Vous decidez de garder l'éclair de Zeus. \nEn effet, c'est la juste récompense pour avoir traversé tous ses obstacles. \nVotre décision plonge le monde dans le chaos et provoque la colère de Zeus et des autres Dieux. \nVous survivez au chaos grâce à l'éclair.");
+			     mageGiveStormDesc = new TerminalNode(102, "Vous rendez l'éclair divin à son propriétaire. \nAinsi, vous ramenez le calme dans la monde. \nDe plus, Zeus vous exauce votre voeu le plus cher. \nVOUS ÊTES UN GRAND HEROS !");
 			    
-			    Event mageKeepStorm = new InnerNode(103, "Vous decidez de garder l'éclair de Zeus. ",Arrays.asList(mageKeepStormDesc));
-			    Event mageGiveStorm = new InnerNode(104, "Vous rendez l'éclair divin à son propriétaire.", Arrays.asList(mageGiveStormDesc));
+			     mageKeepStorm = new InnerNode(103, "Vous decidez de garder l'éclair de Zeus. ",Arrays.asList(mageKeepStormDesc));
+			     mageGiveStorm = new InnerNode(104, "Vous rendez l'éclair divin à son propriétaire.", Arrays.asList(mageGiveStormDesc));
 			    
 			    
 			    //// Fountain Path
 			    
-			    Event mageZeusLose = new TerminalNode(105, "Vous perdez contre Zeus ! Pour punition contre cette affront, votre âme connaitra le tourment éternel.");
-			    Event mageZeusWin = new TerminalNode(106, "INCROYABLE ! Ce jour est à marqué d'une pierre blanche ! \nVOUS êtes le nouveau roi des Dieux");
-			    Event mageZeusFight = new InnerNode(107,"Vous décidez de combattre Zeus pour mettre fin à toute cette injustice en vous alliant à ses différentes maitresses!", 
+			     mageZeusLose = new TerminalNode(105, "Vous perdez contre Zeus ! Pour punition contre cette affront, votre âme connaitra le tourment éternel.");
+			     mageZeusWin = new TerminalNode(106, "INCROYABLE ! Ce jour est à marqué d'une pierre blanche ! \nVOUS êtes le nouveau roi des Dieux");
+			     mageZeusFight = new InnerNode(107,"Vous décidez de combattre Zeus pour mettre fin à toute cette injustice en vous alliant à ses différentes maitresses!", 
 			    		Arrays.asList(	mageZeusWin,
 			    						mageZeusLose)
 			    		);
-			    Event mageWomenLose = new TerminalNode(108, "Vous vous êtes battu comme vous le pouviez malheureusement, elles étaient trop nombreuses. Vous êtes vaincu...");
-			    Event mageWomenWin = new DecisionNode(109, "Vous vous êtes bien battu. Vous avez gagné contre les maitresses de Zeus et repartez avec l'éclair.",
+			     mageWomenLose = new TerminalNode(108, "Vous vous êtes battu comme vous le pouviez malheureusement, elles étaient trop nombreuses. Vous êtes vaincu...");
+			     mageWomenWin = new DecisionNode(109, "Vous vous êtes bien battu. Vous avez gagné contre les maitresses de Zeus et repartez avec l'éclair.",
 			    		Arrays.asList(mageKeepStorm,
 			    		mageGiveStorm));
-			    Event mageWomenFight = new InnerNode(110, "Vous refusez de vous ranger aux côtés des femmes. Elles se réunissent autour de vous et vous attaquent. Défendez-vous! ",
+			     mageWomenFight = new InnerNode(110, "Vous refusez de vous ranger aux côtés des femmes. Elles se réunissent autour de vous et vous attaquent. Défendez-vous! ",
 			    		Arrays.asList(mageWomenWin,
 			    		mageWomenLose));
-			    Event mageFollowWomen = new InnerNode(111, "Vous décidez de suivre le mouvement de ses femmes dont Zeus a fait du tord !", Arrays.asList(mageZeusFight) );
-			    Event mageThetisTalk = new DecisionNode(112, "Thétis vous avoue qu'elle et plusieurs femmes se sont réunies pour battre Zeus. \n \" Oh grand héros ! Rejoins-nous pour faire face à cette injustice !\" ", 
+			     mageFollowWomen = new InnerNode(111, "Vous décidez de suivre le mouvement de ses femmes dont Zeus a fait du tord !", Arrays.asList(mageZeusFight) );
+			     mageThetisTalk = new DecisionNode(112, "Thétis vous avoue qu'elle et plusieurs femmes se sont réunies pour battre Zeus. \n \" Oh grand héros ! Rejoins-nous pour faire face à cette injustice !\" ", 
 			    		Arrays.asList(mageFollowWomen,
 			    		mageWomenFight)
 			    		);
-			    Event mageAchillesLose = new TerminalNode(113, "Vous vous êtes battu comme vous le pouviez malheureusement, Achille n'a pas volé son titre de héros. \nDans une autre vie peut être que vous auriez gagné... ");
+			     mageAchillesLose = new TerminalNode(113, "Vous vous êtes battu comme vous le pouviez malheureusement, Achille n'a pas volé son titre de héros. \nDans une autre vie peut être que vous auriez gagné... ");
 			    
-			    Event mageThetisRevenge = new TerminalNode(114, "Thetis s'effondre. Elle se retrouve sans enfant. Elle décide de sauter  dans le lac en vous tenant afin de vous donner la mort avec elle.");
-			    Event mageHeadlessImpossible = new TerminalNode(115, "N'avez vous jamais entendu parlé de talon d'Achille ? \nC'est son point faible! \nNe pas savoir cela vous a couté la vie. ");
-			    Event mageAchillesHeadChop = new InnerNode(116, "Vous décidez de couper la tête d'Achille", Arrays.asList(mageHeadlessImpossible));
-			    Event mageAchillesClemence = new InnerNode(117,"Pour votre clémence, Thétis vous propose de vous donner de l'eau d'une source pour soigner vos blessures. ",Arrays.asList(mageThetisTalk));	
-			    Event mageAchillesStandUp = new InnerNode(118,"Achilles se relève. Cette fois-ci il ne rate pas votre tête. \nVous êtes mort.", Arrays.asList(mageAchillesLose));	
-			    Event mageAchillesNothing = new ChanceNode(119, "Vous décidez de le laisser tranquille",
+			     mageThetisRevenge = new TerminalNode(114, "Thetis s'effondre. Elle se retrouve sans enfant. Elle décide de sauter  dans le lac en vous tenant afin de vous donner la mort avec elle.");
+			     mageHeadlessImpossible = new TerminalNode(115, "N'avez vous jamais entendu parlé de talon d'Achille ? \nC'est son point faible! \nNe pas savoir cela vous a couté la vie. ");
+			     mageAchillesHeadChop = new InnerNode(116, "Vous décidez de couper la tête d'Achille", Arrays.asList(mageHeadlessImpossible));
+			     mageAchillesClemence = new InnerNode(117,"Pour votre clémence, Thétis vous propose de vous donner de l'eau d'une source pour soigner vos blessures. ",Arrays.asList(mageThetisTalk));	
+			     mageAchillesStandUp = new InnerNode(118,"Achilles se relève. Cette fois-ci il ne rate pas votre tête. \nVous êtes mort.", Arrays.asList(mageAchillesLose));	
+			     mageAchillesNothing = new ChanceNode(119, "Vous décidez de le laisser tranquille",
 			    		Arrays.asList(mageAchillesClemence,
 			    		mageAchillesStandUp)
 			    		);
-			    Event mageAchillesHeel = new InnerNode(120,"Vous décidez de couper les chevilles d'Achille", Arrays.asList(mageThetisRevenge));
-			    Event mageAchillesWin = new DecisionNode(121, "Quand 2 héros s'affrontent, celui qui gagne se doit de couper la tête du perdant. Qu'allez-vous faire ?",
+			     mageAchillesHeel = new InnerNode(120,"Vous décidez de couper les chevilles d'Achille", Arrays.asList(mageThetisRevenge));
+			     mageAchillesWin = new DecisionNode(121, "Quand 2 héros s'affrontent, celui qui gagne se doit de couper la tête du perdant. Qu'allez-vous faire ?",
 			    		Arrays.asList(mageAchillesHeadChop,
 			    	    		mageAchillesHeel,
 			    	    		mageAchillesNothing)
 			    		);
-			    Event mageAchillesFight = new InnerNode(122, "En provoquant Thétis, vous provoquez la colère de son fils qui décide de vous combatre à sa place",
+			     mageAchillesFight = new InnerNode(122, "En provoquant Thétis, vous provoquez la colère de son fils qui décide de vous combatre à sa place",
 			    		Arrays.asList(mageAchillesWin,
 			    		mageAchillesLose));
-			    Event mageThetisMeet = new InnerNode(123,"Vous décidez de parler à Thétis", Arrays.asList(mageThetisTalk) );
-			    Event mageThetisFight = new InnerNode(124, "Vous décidez d'attaquer Thétis.", Arrays.asList(mageAchillesFight));
-			    Event mageThetis = new DecisionNode(125,"Vous retrouvez Thétis face à un lac.",
+			     mageThetisMeet = new InnerNode(123,"Vous décidez de parler à Thétis", Arrays.asList(mageThetisTalk) );
+			     mageThetisFight = new InnerNode(124, "Vous décidez d'attaquer Thétis.", Arrays.asList(mageAchillesFight));
+			     mageThetis = new DecisionNode(125,"Vous retrouvez Thétis face à un lac.",
 			    		Arrays.asList(mageThetisMeet,
 			    		mageThetisFight)
 			    		);
-			    Event mageThetisCoupable = new InnerNode(126, "Thétis", Arrays.asList(mageThetis));
+			     mageThetisCoupable = new InnerNode(126, "Thétis", Arrays.asList(mageThetis));
 			    
 			    //// Flower Path
-			    Event mageLetStormDesc = new TerminalNode(127, "Vous décidez de les laisser se venger de Zeus. \nVOUS N'AUREZ JAMAIS VOTRE NOM INSCRIS \nDANS LES PLUS GRANDS LIVRES D'HISTOIRE !");
-			    Event mageLetStormHeraDesc = new TerminalNode(128, "La vengeance d'Héra est fondée. Zeus mérite une punition ! \nVous décidez de la laisser faire en oubliant tout vos désirs d'entrer dans la légende. ");
+			     mageLetStormDesc = new TerminalNode(127, "Vous décidez de les laisser se venger de Zeus. \nVOUS N'AUREZ JAMAIS VOTRE NOM INSCRIS \nDANS LES PLUS GRANDS LIVRES D'HISTOIRE !");
+			     mageLetStormHeraDesc = new TerminalNode(128, "La vengeance d'Héra est fondée. Zeus mérite une punition ! \nVous décidez de la laisser faire en oubliant tout vos désirs d'entrer dans la légende. ");
 			    
-			    Event mageLetStorm = new InnerNode(129, "Vous comprenez l'objectif des fils d'Héra.", Arrays.asList(mageLetStormDesc));
-			    Event mageLetStormHera = new InnerNode(130, "Vous ne reprenez pas la foudre. ", Arrays.asList(mageLetStormHeraDesc));
-			    Event mageStormChoice = new DecisionNode(131, "Vous avez gagné le combat contre Arès ! ", 
+			     mageLetStorm = new InnerNode(129, "Vous comprenez l'objectif des fils d'Héra.", Arrays.asList(mageLetStormDesc));
+			     mageLetStormHera = new InnerNode(130, "Vous ne reprenez pas la foudre. ", Arrays.asList(mageLetStormHeraDesc));
+			     mageStormChoice = new DecisionNode(131, "Vous avez gagné le combat contre Arès ! ", 
 			    		Arrays.asList(mageKeepStorm, mageGiveStorm,mageLetStorm)
 			    		);
-			    Event mageAresDeath = new TerminalNode(132, "Arès vous a battu :( ");
-			    Event mageAresFight = new InnerNode(133, "Arès, le Dieu de la guerre.\nC'est lui qui, poussé par la colère, a volé le trèsor du souverain des Dieux. \nPrévenu de votre venu, il vous accueille la lance à la main ! \nBattez-vous pour récupérer la foudre !", 
+			     mageAresDeath = new TerminalNode(132, "Arès vous a battu :( ");
+			     mageAresFight = new InnerNode(133, "Arès, le Dieu de la guerre.\nC'est lui qui, poussé par la colère, a volé le trèsor du souverain des Dieux. \nPrévenu de votre venu, il vous accueille la lance à la main ! \nBattez-vous pour récupérer la foudre !", 
 			    		Arrays.asList(mageStormChoice,
 			    		mageAresDeath));
-			    Event mageHeraDeath = new TerminalNode(134, "Hera vous a battu :( ");
-			    Event mageHeraStormChoice = new DecisionNode(135, "Héra est vaincue ! ", 
+			     mageHeraDeath = new TerminalNode(134, "Hera vous a battu :( ");
+			     mageHeraStormChoice = new DecisionNode(135, "Héra est vaincue ! ", 
 			    		Arrays.asList(mageKeepStorm, mageGiveStorm,mageLetStormHera)
 			    		);
-			    Event mageHeraFight = new InnerNode(136,"Depuis le début, c'était Héra qui possédait la foudre ! \nPrévenue de votre arrivée par son fils, elle se jette sur vous, son sceptre à la main. ", 
+			     mageHeraFight = new InnerNode(136,"Depuis le début, c'était Héra qui possédait la foudre ! \nPrévenue de votre arrivée par son fils, elle se jette sur vous, son sceptre à la main. ", 
 			    		Arrays.asList(mageHeraStormChoice,
 			    		mageHeraDeath)
 			    		);
-			    Event mageAresOrHera = new ChanceNode(137, "Vous décidez de parler avec Hephaistos. \nIl vous donne le nom du détenteur de l'écair. Vous n'en croyez pas vos oreilles...", 
+			     mageAresOrHera = new ChanceNode(137, "Vous décidez de parler avec Hephaistos. \nIl vous donne le nom du détenteur de l'écair. Vous n'en croyez pas vos oreilles...", 
 			    		Arrays.asList(mageAresFight,
 			    		mageHeraFight)
 			    		);
-			    Event mageHephaLost = new TerminalNode(138, "Hephaistos vous tue à l'aide de son marteau. Il ne reste plus rien de vous...");
-			    Event mageHephaWin = new InnerNode(139, "Vous avez gagné le combat contre Hephaistos :) \nEn échange de votre bravoure, il vous livre le nom de son frère. ", Arrays.asList(mageAresFight));
-			    Event mageHephaistosFight = new InnerNode(140, "Vous décidez de combattre Hephaistos.",
+			     mageHephaLost = new TerminalNode(138, "Hephaistos vous tue à l'aide de son marteau. Il ne reste plus rien de vous...");
+			     mageHephaWin = new InnerNode(139, "Vous avez gagné le combat contre Hephaistos :) \nEn échange de votre bravoure, il vous livre le nom de son frère. ", Arrays.asList(mageAresFight));
+			     mageHephaistosFight = new InnerNode(140, "Vous décidez de combattre Hephaistos.",
 			    		Arrays.asList(mageHephaWin,
 			    		mageHephaLost)
 			    		);
-			    Event mageHephaistosMeet = new DecisionNode(141, "Vous vous dirigez vers la forge, le territoire d'Hephaistos. Vous avez le choix entre lui demander de l'aide et le combattre. ", 
+			     mageHephaistosMeet = new DecisionNode(141, "Vous vous dirigez vers la forge, le territoire d'Hephaistos. Vous avez le choix entre lui demander de l'aide et le combattre. ", 
 			    		Arrays.asList(mageAresOrHera,
 			    		mageHephaistosFight)
 			    		);
-			    Event mageHeraHepha = new InnerNode(142, "Héra est touchée par votre sensibilité vis-à-vis de sa situation. \nElle n'avait jamais croisé un inconnu avec une âme aussi pure. \nEn pleurs, elle avoue que par amour ses fils ont décidé de la venger de Zeus.", Arrays.asList(mageHephaistosMeet));
-			    Event mageAgreeHera = new InnerNode(143, "Vous êtes d'accord avec elle ! Elle n'a pas à subir l'adultère de Zeus !", Arrays.asList(mageHeraHepha));
-			    Event mageDisagreeDeath = new TerminalNode(144, "Vous mourez empoisonné, seul,  dans ce labyrinthe de fleurs ensanglantées de votre propre sang... ");	    
+			     mageHeraHepha = new InnerNode(142, "Héra est touchée par votre sensibilité vis-à-vis de sa situation. \nElle n'avait jamais croisé un inconnu avec une âme aussi pure. \nEn pleurs, elle avoue que par amour ses fils ont décidé de la venger de Zeus.", Arrays.asList(mageHephaistosMeet));
+			     mageAgreeHera = new InnerNode(143, "Vous êtes d'accord avec elle ! Elle n'a pas à subir l'adultère de Zeus !", Arrays.asList(mageHeraHepha));
+			     mageDisagreeDeath = new TerminalNode(144, "Vous mourez empoisonné, seul,  dans ce labyrinthe de fleurs ensanglantées de votre propre sang... ");	    
 			    
 			    /// Fountain Path suite 
 			    
 			    // Nymphes
 			    
-			    Event mageHypnosis = new TerminalNode(145,"Les nymphes aquatiques vous offrent des friandises aux fleurs de lotus. \nVous ne voyez pas le temps passer. \nVous finnissez par être emprisonné dans une illusion sans fin. \nFIN");
-			    Event mageNymphes = new InnerNode(146,"Vous vous retrouvez entouré de nymphes auqatiques.",Arrays.asList(mageHypnosis));
+			     mageHypnosis = new TerminalNode(145,"Les nymphes aquatiques vous offrent des friandises aux fleurs de lotus. \nVous ne voyez pas le temps passer. \nVous finnissez par être emprisonné dans une illusion sans fin. \nFIN");
+			     mageNymphes = new InnerNode(146,"Vous vous retrouvez entouré de nymphes auqatiques.",Arrays.asList(mageHypnosis));
 			    
 			    
 			    // Hera suite
 			    
-			    Event mageDisagreeMiracle = new InnerNode(147, "Une petite nymphe aquatique vous a suivi pendant tout votre périple et s'est pris d'affection pour vous ! \n Elle soigne tant bien que mal vos blessures. \n Elle vous ramène près d'une source d'eau où se trouvent d'autres nymphes. ", Arrays.asList(mageNymphes));
-			    Event mageHeraKill = new ChanceNode(148,"Héra est en FURIEUSE ! Elle décide de lancer ses serpents sur vous. \nIls vous mordent et vous empoisonnent.", Arrays.asList(mageDisagreeDeath,mageDisagreeMiracle));
-			    Event mageDisagreeHera = new InnerNode(149, "Vous n'êtes pas d'accord avec elle ! Bien que Zeus continue à courtiser d'autres femmes, c'est le privilège du Roi !", Arrays.asList(mageHeraKill));
+			     mageDisagreeMiracle = new InnerNode(147, "Une petite nymphe aquatique vous a suivi pendant tout votre périple et s'est pris d'affection pour vous ! \n Elle soigne tant bien que mal vos blessures. \n Elle vous ramène près d'une source d'eau où se trouvent d'autres nymphes. ", Arrays.asList(mageNymphes));
+			     mageHeraKill = new ChanceNode(148,"Héra est en FURIEUSE ! Elle décide de lancer ses serpents sur vous. \nIls vous mordent et vous empoisonnent.", Arrays.asList(mageDisagreeDeath,mageDisagreeMiracle));
+			     mageDisagreeHera = new InnerNode(149, "Vous n'êtes pas d'accord avec elle ! Bien que Zeus continue à courtiser d'autres femmes, c'est le privilège du Roi !", Arrays.asList(mageHeraKill));
 			    
 			   //Attention ! Risque de cycle ! 
-			    Event mageHeraNotTalk = new InnerNode(150, "Vous décidez de ne pas parler à Héra. Elle fait bient trop peur ! Vous reborussez chemin...", Arrays.asList(mageThetis)); 
-			    Event mageOpinionHera = new DecisionNode(151, "Héra vous explique sa situation : \nZeus, son mari, la trompe une fois encore. \nElle ne sait plus quoi faire pour l'empêcher de continuer. \nElle veut que Zeus souffre mais ne sait pas si c'est une bonne idée de s'attirer les foudres du dieu de la foudre en ce moment...",
+			     mageHeraNotTalk = new InnerNode(150, "Vous décidez de ne pas parler à Héra. Elle fait bient trop peur ! Vous reborussez chemin...", Arrays.asList(mageThetis)); 
+			     mageOpinionHera = new DecisionNode(151, "Héra vous explique sa situation : \nZeus, son mari, la trompe une fois encore. \nElle ne sait plus quoi faire pour l'empêcher de continuer. \nElle veut que Zeus souffre mais ne sait pas si c'est une bonne idée de s'attirer les foudres du dieu de la foudre en ce moment...",
 			    		Arrays.asList(mageDisagreeHera,
 			    		mageAgreeHera)
 			    		); 
-			    Event mageHeraTalk = new InnerNode(152, "Vous décidez de parler à Héra", Arrays.asList(mageOpinionHera));  
-			    Event mageHeraMeet = new DecisionNode(153,"En avançant, vous remarquez que l'allée de fleurs menait en fait vers un labyrithe de hautes herbes. \nVous vous retrouvez face à une femme magnifique. \nSans aucun doute, il s'agit bien de Héra, la déesse du foyer.",
+			     mageHeraTalk = new InnerNode(152, "Vous décidez de parler à Héra", Arrays.asList(mageOpinionHera));  
+			     mageHeraMeet = new DecisionNode(153,"En avançant, vous remarquez que l'allée de fleurs menait en fait vers un labyrithe de hautes herbes. \nVous vous retrouvez face à une femme magnifique. \nSans aucun doute, il s'agit bien de Héra, la déesse du foyer.",
 			    		Arrays.asList(mageHeraTalk,
 			    		mageHeraNotTalk)
 			    		); 
-			    Event mageFlowerPath = new InnerNode(154, "Vous décidez de marcher vers l'allée de fleurs. ", Arrays.asList(mageHeraMeet));
-			    Event mageHera = new InnerNode(155, "Héra", Arrays.asList(mageFlowerPath));
+			     mageFlowerPath = new InnerNode(154, "Vous décidez de marcher vers l'allée de fleurs. ", Arrays.asList(mageHeraMeet));
+			     mageHera = new InnerNode(155, "Héra", Arrays.asList(mageFlowerPath));
 			    
 			    // Suite posseidon
 			    
-			    Event magePosseidonWin = new ChanceNode(156,"Suite à votre victoire, Posséidon vous confie l'identité du voleur de foudre. \nIl s'agit de : ",
+			     magePosseidonWin = new ChanceNode(156,"Suite à votre victoire, Posséidon vous confie l'identité du voleur de foudre. \nIl s'agit de : ",
 			    		Arrays.asList(mageHera,
 			    		mageThetisCoupable));
-			    Event magePosseidonLose = new TerminalNode(157, "Vous perdez contre Posséidon ! Pour punition contre cette affront, votre âme connaitra le tourment éternel.");
-			    Event magePosseidonFight = new InnerNode(158,"Vous décidez de combattre Posseidon", 
+			     magePosseidonLose = new TerminalNode(157, "Vous perdez contre Posséidon ! Pour punition contre cette affront, votre âme connaitra le tourment éternel.");
+			     magePosseidonFight = new InnerNode(158,"Vous décidez de combattre Posseidon", 
 			    		Arrays.asList(magePosseidonWin,
 			    		magePosseidonLose)
 			    		);
-			    Event magePosseidonMood = new ChanceNode(159, "Posséidon est occupé à parler avec une autre divinité. \nIl pointe une direction pour que vous y aller. ",
+			     magePosseidonMood = new ChanceNode(159, "Posséidon est occupé à parler avec une autre divinité. \nIl pointe une direction pour que vous y aller. ",
 			    		Arrays.asList(mageNymphes,
 			    		mageHeraMeet));
-			    Event magePosseidonTalk = new InnerNode(160,"Vous décidez de parler avec Posséidon.", Arrays.asList(magePosseidonMood));
-			    Event magePosseidonMeet = new DecisionNode(161,"En avançant, vous vous retrouvez face à Posséidon, le dieu des Océans. \nDes rumeurs circulent que c'est lui qui détient l'éclair. \nGrâce à cette dernière, il pourrait descendre dans \nle monde des humains sans difficultés pour revoir son fils et sa femme \nque Zeus lui aurait interdit de voir...",
+			     magePosseidonTalk = new InnerNode(160,"Vous décidez de parler avec Posséidon.", Arrays.asList(magePosseidonMood));
+			     magePosseidonMeet = new DecisionNode(161,"En avançant, vous vous retrouvez face à Posséidon, le dieu des Océans. \nDes rumeurs circulent que c'est lui qui détient l'éclair. \nGrâce à cette dernière, il pourrait descendre dans \nle monde des humains sans difficultés pour revoir son fils et sa femme \nque Zeus lui aurait interdit de voir...",
 			    		Arrays.asList(magePosseidonTalk,
 			    		magePosseidonFight
 			    		)); 
-			    Event mageFountainPath = new InnerNode(162, "Vous décidez de marcher vers la fontaine d'eau. ", Arrays.asList(magePosseidonMeet));
+			     mageFountainPath = new InnerNode(162, "Vous décidez de marcher vers la fontaine d'eau. ", Arrays.asList(magePosseidonMeet));
 			    	    
 			    
 			    //// Library Path
 			    
-			    Event mageOutLibrary = new DecisionNode(163,"Vous vous faites jeter de la bibliothèque. Où allez vous maintenant ?", 
+			     mageOutLibrary = new DecisionNode(163,"Vous vous faites jeter de la bibliothèque. Où allez vous maintenant ?", 
 			    		Arrays.asList(mageFountainPath,
 			    		mageFlowerPath));
-			    Event mageJustAnOwl = new InnerNode(164,"C'était une simple chouette...Rien de surnaturel...", Arrays.asList(mageOutLibrary));
-			    Event mageAthenaClue = new InnerNode(165, "Pour vous remercier de votre générosité, elle vous mène vers le coupable.", Arrays.asList(mageHephaistosMeet));
-			    Event mageNotJustAnOwl = new InnerNode(166, "Il s'agissait d'Athéna déguisée !!", Arrays.asList(mageAthenaClue));
-			    Event mageOwlMeta = new ChanceNode(167,"Vous donnez à manger à la chouette en espérant un miracle.", Arrays.asList(mageJustAnOwl, mageNotJustAnOwl));
-			    Event mageOwlScream = new InnerNode(168,"L'oiseau cri. Un responsable arrive :(", Arrays.asList(mageOutLibrary));
-			    Event mageOwlHungry = new InnerNode(169,"La chouette n'est pas à vous, pas besoin d'y faire attention.", Arrays.asList(mageOwlScream));
-			    Event mageOwlFeed = new DecisionNode(170, "L'oiseau a l'air affamé. ", Arrays.asList(mageOwlMeta,mageOwlHungry));
-			    Event mageOwlApproach = new InnerNode(171,"Vous décidez de vous rapprocher de la chouette pour l'admirer.", Arrays.asList(mageOwlFeed));
-			    Event mageOwlNoApproach = new InnerNode(172,"Vous décidez de ne pas vous approcher de la chouette. Vous en avez peur...", Arrays.asList(mageOwlScream));
-			    Event mageGoNextOwl = new DecisionNode(173,"Vous apercevez une chouette suspendue à un perchoir au fond de la salle. ", Arrays.asList(mageOwlApproach, mageOwlNoApproach));
-			    Event mageNobody = new InnerNode(174, "Il n'y a personne ici...", Arrays.asList(mageOutLibrary));
-			    Event mageLibraryEntry = new ChanceNode(175,"Vous entrez dans la bibliothèque.", Arrays.asList(mageNobody,mageGoNextOwl) );
+			     mageJustAnOwl = new InnerNode(164,"C'était une simple chouette...Rien de surnaturel...", Arrays.asList(mageOutLibrary));
+			     mageAthenaClue = new InnerNode(165, "Pour vous remercier de votre générosité, elle vous mène vers le coupable.", Arrays.asList(mageHephaistosMeet));
+			     mageNotJustAnOwl = new InnerNode(166, "Il s'agissait d'Athéna déguisée !!", Arrays.asList(mageAthenaClue));
+			     mageOwlMeta = new ChanceNode(167,"Vous donnez à manger à la chouette en espérant un miracle.", Arrays.asList(mageJustAnOwl, mageNotJustAnOwl));
+			     mageOwlScream = new InnerNode(168,"L'oiseau cri. Un responsable arrive :(", Arrays.asList(mageOutLibrary));
+			     mageOwlHungry = new InnerNode(169,"La chouette n'est pas à vous, pas besoin d'y faire attention.", Arrays.asList(mageOwlScream));
+			     mageOwlFeed = new DecisionNode(170, "L'oiseau a l'air affamé. ", Arrays.asList(mageOwlMeta,mageOwlHungry));
+			     mageOwlApproach = new InnerNode(171,"Vous décidez de vous rapprocher de la chouette pour l'admirer.", Arrays.asList(mageOwlFeed));
+			     mageOwlNoApproach = new InnerNode(172,"Vous décidez de ne pas vous approcher de la chouette. Vous en avez peur...", Arrays.asList(mageOwlScream));
+			     mageGoNextOwl = new DecisionNode(173,"Vous apercevez une chouette suspendue à un perchoir au fond de la salle. ", Arrays.asList(mageOwlApproach, mageOwlNoApproach));
+			     mageNobody = new InnerNode(174, "Il n'y a personne ici...", Arrays.asList(mageOutLibrary));
+			     mageLibraryEntry = new ChanceNode(175,"Vous entrez dans la bibliothèque.", Arrays.asList(mageNobody,mageGoNextOwl) );
 			    
-			    Event mage1 = new DecisionNode(100, "Ou commenceriez-vous vos recherches ? ",
+			     mage1 = new DecisionNode(100, "Ou commenceriez-vous vos recherches ? ",
 			    		Arrays.asList(mageFountainPath,
 			    				mageFlowerPath,
 			    	    		mageLibraryEntry)
@@ -636,11 +712,7 @@ public class Main {
 			    currentNode = currentNode.chooseNext();
 			    
 			    while(!(currentNode.getDecoratedNode() instanceof TerminalNode)) {
-			    	if(currentNode.equals(mageAchillesClemence)) {
-			    		//ajouter pv
-			    		player.setHp(player.getHp()+10);
-			    	}
-			    		    	
+			    	    	
 			    	
 			    	if(!(currentNode.getDecoratedNode() instanceof DecisionNode) && !(currentNode.getDecoratedNode() instanceof ChanceNode) 
 			    			&& !(currentNode.equals(sn6)) 
@@ -785,7 +857,12 @@ public class Main {
 		    		    	}
 		    			}
 		    			
-		    			if(player instanceof Human) {
+		    			if(player instanceof Mage) {
+		    				
+		    				if(currentNode.equals(mageAchillesClemence)) {
+					    		//ajouter pv
+					    		player.setHp(player.getHp()+10);
+					    	}
 		    				currentNode = currentNode.chooseNext();
 		    			}
 				    }
