@@ -26,7 +26,7 @@ public class Main {
 	     
 		public static Scanner myObj = new Scanner(System.in);
 		
-		public static String choice;
+		public static String choice = null;
 		public static String nom;
 		public static int weaponT;
 		public static Hero player = null;
@@ -34,9 +34,10 @@ public class Main {
 		public static int weaponM;
 		public static int familiarP;
 		public static int attribute;
-		public static String playerType;
 		public static String choix;
 		public static GameGUI gg;
+		
+		
 		
 		public static Weapon cerberusW;
 		public static Villain cerberus;
@@ -200,6 +201,8 @@ public class Main {
 		gg = new GameGUI();
         gg.display();
         
+        
+        
 		/*SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -237,46 +240,10 @@ public class Main {
 		familiar.add(Familiar.Serpent);
 		
 		
-		//Intro to Story 
-		
-		System.out.println("Zeus a perdu son éclair divin ! Il est sûr que quelqu'un l'a volé pour \nréaliser de mauvais desseins. Il promet d'exaucer le voeu de celui ou celle qui le lui rendra.");
-		System.out.println("Vous décidez d'accepter cette quête. ");
 		
 		
-		    
-		//Player's class
-		System.out.println("Choisis ton personnage parmis: (Saisissez une des classes suivantes)");
-		System.out.println("Humain _ Mage _ Ange _ Demon");
-
-		//get player input
-	    choice = myObj.next().toLowerCase(); 
-	    
-		System.out.println("Personnalise ton personnage:");
-		System.out.println("Nom:");
-		
-		//get player input
-		nom = myObj.next();
-		
-		
-	    
-	    
-		
-		
-		
-		
-		
-		
-		Game game = new Game(player, choice);
+		Game game = new Game(player, choice); 
 		gg.setGame(game);
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		//Villains Human 
@@ -587,296 +554,6 @@ public class Main {
 			    		);
 		        
 		        
-			    
-			    
-			    
-			    Event currentNode = null;
-				
-			  //Create player object
-			    switch(choice) {
-			    
-				    case "humain":
-				    	WeaponType wTHuman = nonMagicalWeapons();
-				    	String wN = weaponName();
-				    	Material wM = nonMagicalWeaponMaterial();
-						NonMagicalWeapon w = new NonMagicalWeapon(wN, wTHuman, wM);
-						Familiar fam = familiar();
-						
-				    	player = new Human(nom, w, fam);
-				    	
-				    	System.out.println("Vos recherches vous amènent jusqu'aux Enfers, le territoire d'Hades. \nPour entrer il vous faudra passer les serviteurs du roi des Enfers, notamment : \nCerberus et Charon. La première étape est Cerberus");
-				    	currentNode = node1;
-				    	
-				    	break;
-				    	
-				   case "mage":
-				    	WeaponType wTMage = magicalWeapons();
-				    	String wNMage = weaponName();
-				    	Attribute wAMage = magicalWeaponAttribute();
-						MagicalWeapon mageWeapon = new MagicalWeapon(wNMage, wTMage, wAMage);
-						Familiar mageFam = familiar();
-						
-				    	player = new Mage(nom, mageWeapon, mageFam);
-				    	
-				    	System.out.println("Vos recherches vous amènent jusqu'à l'Olympe, le territoire des Dieux. \nUn des Olympiens (Dieux siègeant à l'Olympe) serait le coupable de ce vol...\nMais qui ?");
-						currentNode = mage1;
-						   
-				    	break;
-				    	
-				    case "ange":
-				    	System.out.println("Souhaitez-vous utiliser une arme magique ou nm (Saisissez m ou nm)");
-				    	choix = myObj.next();
-				    	WeaponType wTAngel = null;
-				    	String wNAngel = null;
-				    	Weapon angelWeapon = null;
-				    	
-				    	if(choix.equals("m")) {
-				    		wTAngel = magicalWeapons();
-				    		Attribute wAAngel = magicalWeaponAttribute();
-				    		wNAngel = weaponName();
-				    		angelWeapon = new MagicalWeapon(wNAngel, wTAngel, wAAngel);
-				    		
-				    	}else if (choix.equals("nm")){
-				    		wTAngel = nonMagicalWeapons();
-				    		Material wMAngel = nonMagicalWeaponMaterial();
-				    		wNAngel = weaponName();
-				    		angelWeapon = new NonMagicalWeapon(wNAngel, wTAngel, wMAngel);
-				    		
-				    	}
-				    	
-						
-				    	player = new Angel(nom, angelWeapon);
-				    	
-				    	System.out.println("Vos recherches vous amènent jusque la Terre, le territoire des Humains.");
-						currentNode = line1;
-				    	
-				    	break;
-				    	
-				    case "demon":
-				    	
-				    	System.out.println("Souhaitez-vous utiliser une arme magique ou nm (Saisissez m ou nm)");
-				    	choix = myObj.next();
-				    	WeaponType wTDemon = null;
-				    	String wNDemon = null;
-				    	Weapon demonWeapon = null;
-				    	
-				    	if(choix.equals("m")) {
-				    		wTDemon = magicalWeapons();
-				    		Attribute wADemon = magicalWeaponAttribute();
-				    		wNDemon = weaponName();
-				    		demonWeapon = new MagicalWeapon(wNDemon, wTDemon, wADemon);
-				    		
-				    	}else if (choix.equals("nm")){
-				    		wTDemon = nonMagicalWeapons();
-				    		Material wMDemon = nonMagicalWeaponMaterial();
-				    		wNDemon = weaponName();
-				    		demonWeapon = new NonMagicalWeapon(wNDemon, wTDemon, wMDemon);
-				    		
-				    	}
-						
-				    	player = new Demon(nom, demonWeapon);
-				    	
-				    	System.out.println("Vos recherches vous amènent jusque la Terre, le territoire des Humains.");
-						currentNode = line1;
-				    	
-				    	break;
-				    	
-				    default:
-				    	WeaponType wTDefault = nonMagicalWeapons();
-				    	String wNameD = weaponName();
-				    	Material wD = nonMagicalWeaponMaterial();
-						NonMagicalWeapon wDefault = new NonMagicalWeapon(wNameD, wTDefault , wD);
-						Familiar famDefault = familiar();
-						
-				    	player = new Human(nom, wDefault, famDefault);
-				    	
-				    	System.out.println("Vos recherches vous amènent jusqu'aux Enfers, le territoire d'Hades. \nPour entrer il vous faudra passer les serviteurs du roi des Enfers, notamment : \nCerberus et Charon. La première étape est Cerberus");
-				    	currentNode = node1;
-				    	break;
-			    }
-			    
-				
-				
-				
-			    
-			    
-			  //Display player data
-			    System.out.println(player.toString()); 
-			    
-
-			    
-			   //Main Code (Game)
-			    
-			    System.out.println();
-			    currentNode.display();
-			    currentNode = currentNode.chooseNext();
-			    
-			    while(!(currentNode.getDecoratedNode() instanceof TerminalNode)) {
-			    	    	
-			    	
-			    	if(!(currentNode.getDecoratedNode() instanceof DecisionNode) && !(currentNode.getDecoratedNode() instanceof ChanceNode) 
-			    			&& !(currentNode.equals(sn6)) 
-			    			&& !(currentNode.equals(sn9))
-			    			&& !(currentNode.equals(line2))
-			    			&& !(currentNode.equals(line5))
-			    			&& !(currentNode.equals(line6))
-			    			&& !(currentNode.equals(line10))
-			    			&& !(currentNode.equals(mageKeepStorm))
-			    			&& !(currentNode.equals(mageGiveStorm))
-			    			&& !(currentNode.equals(mageFollowWomen))
-			    			&& !(currentNode.equals(mageAchillesHeadChop))
-			    			&& !(currentNode.equals(mageAchillesClemence))
-			    			&& !(currentNode.equals(mageAchillesStandUp))
-			    			&& !(currentNode.equals(mageAchillesHeel))
-			    			&& !(currentNode.equals(mageThetisFight))
-			    			&& !(currentNode.equals(mageThetisMeet))
-			    			&& !(currentNode.equals(mageThetisCoupable))
-			    			&& !(currentNode.equals(mageLetStorm))
-			    			&& !(currentNode.equals(mageLetStormHera))
-			    			&& !(currentNode.equals(mageHephaWin))
-			    			&& !(currentNode.equals(mageHeraHepha))
-			    			&& !(currentNode.equals(mageAgreeHera))
-			    			&& !(currentNode.equals(mageNymphes))
-			    			&& !(currentNode.equals(mageDisagreeMiracle))
-			    			&& !(currentNode.equals(mageDisagreeHera))
-			    			&& !(currentNode.equals(mageHeraNotTalk))
-			    			&& !(currentNode.equals(mageHeraTalk))
-			    			&& !(currentNode.equals(mageFlowerPath))
-			    			&& !(currentNode.equals(mageHera))
-			    			&& !(currentNode.equals(magePosseidonTalk))
-			    			&& !(currentNode.equals(mageFountainPath))
-			    			&& !(currentNode.equals(mageJustAnOwl))
-			    			&& !(currentNode.equals(mageAthenaClue))
-			    			&& !(currentNode.equals(mageOwlScream))
-			    			&& !(currentNode.equals(mageOwlHungry))
-			    			&& !(currentNode.equals(mageOwlApproach))
-			    			&& !(currentNode.equals(mageOwlNoApproach))
-			    			&& !(currentNode.equals(mageNobody))
-			    			//InnerNodes with only one component in list nodes
-			    			) 
-			    	{
-				    	
-			    		
-			    		if(player instanceof Angel || player instanceof Demon) {
-			    			
-			    			if(currentNode.equals(line4)) {
-					    		currentNode = currentNode.chooseNext(player, people);
-					    	}else if (currentNode.equals(line7)) {
-					    		currentNode = currentNode.chooseNext(player, titans);
-					    		
-					    		if (!(currentNode instanceof TerminalNode)) {
-					    			System.out.println("Name the artefact the titans dropped to avoid a fight with the gardian angel.");
-					    			String rep = myObj.next().toLowerCase();
-						    		if(rep.equals("will")) {
-						    			player.getInventory().put(Item.WillOfOracle, 1);
-						    		}
-					    		}
-					    		
-					    	}else if (currentNode.equals(line12)) {
-					    		currentNode = currentNode.chooseNext(player, gAngel);
-					    	}else {
-					    		currentNode = currentNode.chooseNext(player, zeus);
-					    	}
-			    			
-			    		}
-			    		
-			    		if(player instanceof Human) {
-			    			
-			    			if(currentNode.equals(sn3)) {
-					    		currentNode = currentNode.chooseNext(player, cerberus);
-					    	}else if(currentNode.equals(sn4)) {
-					    		currentNode = currentNode.chooseNext(player, charon);
-					    	}else {
-					    		currentNode = currentNode.chooseNext(player, hades);
-					    	}
-			    			
-			    		}
-			    		
-			    		if(player instanceof Mage) {
-			    			
-			    			if(currentNode.equals(mageHephaistosFight)) {
-					    		currentNode = currentNode.chooseNext(player, hephaistos);
-					    	}else if(currentNode.equals(mageHeraFight)) {
-					    		currentNode = currentNode.chooseNext(player, hera);
-					    	}else if(currentNode.equals(magePosseidonFight)) {
-					    		currentNode = currentNode.chooseNext(player, posseidon);
-					    	}else if(currentNode.equals(mageAresFight)) {
-					    		currentNode = currentNode.chooseNext(player, ares);
-					    	}else if(currentNode.equals(mageAchillesFight)) {
-					    		currentNode = currentNode.chooseNext(player, achilles);
-					    	}else if(currentNode.equals(mageZeusFight)) {
-					    		currentNode = currentNode.chooseNext(player, zeus);
-					    	}else if(currentNode.equals(mageWomenFight)) {
-					    		currentNode = currentNode.chooseNext(player, mistress);
-					    	}
-			    			
-			    		}
-			    		
-				    	
-				    }else 
-				    {
-				    	
-		    			if(player instanceof Angel || player instanceof Demon) {
-			    			
-			    			if(currentNode.equals(line5)) {
-			    				
-			    				if(player instanceof Demon) {
-			    					currentNode = line4;
-			    					//currentNode.display();
-			    				}else {
-			    					currentNode = line6;
-			    					//currentNode.display();
-			    				}
-
-					    	}else if (currentNode.equals(line10)) {
-					    		
-					    		currentNode = currentNode.chooseNext(player, Item.WillOfOracle);
-					    	}else 
-		    		    	{
-		    			    	currentNode = currentNode.chooseNext();
-
-		    		    	}
-			    			
-			    		}
-		    			
-		    			if(player instanceof Human) {
-		    				
-		    				if(currentNode.equals(sn6)) {
-		    		    		
-		    		    		String rep = myObj.next().toLowerCase();
-		    		    		if(rep.equals("obole")) {
-		    		    			player.getInventory().put(Item.OboleOfCharon, 1);
-		    		    		}
-		    		    		
-		    		    		currentNode = currentNode.chooseNext(player, Item.OboleOfCharon);
-		    		    		
-		    		    	}else 
-		    		    	{
-		    			    	currentNode = currentNode.chooseNext();
-
-		    		    	}
-		    			}
-		    			
-		    			if(player instanceof Mage) {
-		    				
-		    				if(currentNode.equals(mageAchillesClemence)) {
-					    		//ajouter pv
-					    		player.setHp(player.getHp()+10);
-					    	}
-		    				currentNode = currentNode.chooseNext();
-		    			}
-				    }
-				   
-				    
-				   currentNode.display();
-				    
-			    }
-			    
-			    myObj.close();
-
-			
-		
-		
 				
 	}
 	
@@ -975,6 +652,310 @@ public class Main {
 		return familiarPlayer;
 	}
 	
+	public static void newGame() {
+		gg.getSaveButton().setEnabled(true);
+		Event currentNode = null;
+		//Intro to Story 
+		
+		System.out.println("Zeus a perdu son éclair divin ! Il est sûr que quelqu'un l'a volé pour \nréaliser de mauvais desseins. Il promet d'exaucer le voeu de celui ou celle qui le lui rendra.");
+		System.out.println("Vous décidez d'accepter cette quête. ");
+		    
+		//Player's class
+		System.out.println("Choisis ton personnage parmis: (Saisissez une des classes suivantes)");
+		System.out.println("Humain _ Mage _ Ange _ Demon");
+
+		//get player input
+	    choice = myObj.next().toLowerCase(); 
+	    
+		System.out.println("Personnalise ton personnage:");
+		System.out.println("Nom:");
+		
+		//get player input
+		nom = myObj.next();
+		
+		//Create player object
+	    switch(choice) {
+	    
+		    case "humain":
+		    	WeaponType wTHuman = nonMagicalWeapons();
+		    	String wN = weaponName();
+		    	Material wM = nonMagicalWeaponMaterial();
+				NonMagicalWeapon w = new NonMagicalWeapon(wN, wTHuman, wM);
+				Familiar fam = familiar();
+				
+		    	player = new Human(nom, w, fam);
+		    	
+		    	System.out.println("Vos recherches vous amènent jusqu'aux Enfers, le territoire d'Hades. \nPour entrer il vous faudra passer les serviteurs du roi des Enfers, notamment : \nCerberus et Charon. La première étape est Cerberus");
+		    	currentNode = node1;
+		    	
+		    	break;
+		    	
+		   case "mage":
+		    	WeaponType wTMage = magicalWeapons();
+		    	String wNMage = weaponName();
+		    	Attribute wAMage = magicalWeaponAttribute();
+				MagicalWeapon mageWeapon = new MagicalWeapon(wNMage, wTMage, wAMage);
+				Familiar mageFam = familiar();
+				
+		    	player = new Mage(nom, mageWeapon, mageFam);
+		    	
+		    	System.out.println("Vos recherches vous amènent jusqu'à l'Olympe, le territoire des Dieux. \nUn des Olympiens (Dieux siègeant à l'Olympe) serait le coupable de ce vol...\nMais qui ?");
+				currentNode = mage1;
+				   
+		    	break;
+		    	
+		    case "ange":
+		    	System.out.println("Souhaitez-vous utiliser une arme magique ou nm (Saisissez m ou nm)");
+		    	choix = myObj.next();
+		    	WeaponType wTAngel = null;
+		    	String wNAngel = null;
+		    	Weapon angelWeapon = null;
+		    	
+		    	if(choix.equals("m")) {
+		    		wTAngel = magicalWeapons();
+		    		Attribute wAAngel = magicalWeaponAttribute();
+		    		wNAngel = weaponName();
+		    		angelWeapon = new MagicalWeapon(wNAngel, wTAngel, wAAngel);
+		    		
+		    	}else if (choix.equals("nm")){
+		    		wTAngel = nonMagicalWeapons();
+		    		Material wMAngel = nonMagicalWeaponMaterial();
+		    		wNAngel = weaponName();
+		    		angelWeapon = new NonMagicalWeapon(wNAngel, wTAngel, wMAngel);
+		    		
+		    	}
+		    	
+				
+		    	player = new Angel(nom, angelWeapon);
+		    	
+		    	System.out.println("Vos recherches vous amènent jusque la Terre, le territoire des Humains.");
+				currentNode = line1;
+		    	
+		    	break;
+		    	
+		    case "demon":
+		    	
+		    	System.out.println("Souhaitez-vous utiliser une arme magique ou nm (Saisissez m ou nm)");
+		    	choix = myObj.next();
+		    	WeaponType wTDemon = null;
+		    	String wNDemon = null;
+		    	Weapon demonWeapon = null;
+		    	
+		    	if(choix.equals("m")) {
+		    		wTDemon = magicalWeapons();
+		    		Attribute wADemon = magicalWeaponAttribute();
+		    		wNDemon = weaponName();
+		    		demonWeapon = new MagicalWeapon(wNDemon, wTDemon, wADemon);
+		    		
+		    	}else if (choix.equals("nm")){
+		    		wTDemon = nonMagicalWeapons();
+		    		Material wMDemon = nonMagicalWeaponMaterial();
+		    		wNDemon = weaponName();
+		    		demonWeapon = new NonMagicalWeapon(wNDemon, wTDemon, wMDemon);
+		    		
+		    	}
+				
+		    	player = new Demon(nom, demonWeapon);
+		    	
+		    	System.out.println("Vos recherches vous amènent jusque la Terre, le territoire des Humains.");
+				currentNode = line1;
+		    	
+		    	break;
+		    	
+		    default:
+		    	WeaponType wTDefault = nonMagicalWeapons();
+		    	String wNameD = weaponName();
+		    	Material wD = nonMagicalWeaponMaterial();
+				NonMagicalWeapon wDefault = new NonMagicalWeapon(wNameD, wTDefault , wD);
+				Familiar famDefault = familiar();
+				
+		    	player = new Human(nom, wDefault, famDefault);
+		    	
+		    	System.out.println("Vos recherches vous amènent jusqu'aux Enfers, le territoire d'Hades. \nPour entrer il vous faudra passer les serviteurs du roi des Enfers, notamment : \nCerberus et Charon. La première étape est Cerberus");
+		    	currentNode = node1;
+		    	break;
+	    }
+	    Game game = new Game(player, choice);
+	    game.setCurrentNode(currentNode);
+	    
+	    gamePlay(game);
+	    
+	}
+	
+	public static void gamePlay(Game game) {
+		//Display player data
+	    System.out.println(player.toString()); 
+	    Event currentNode = null;
+	    currentNode = game.getCurrentNode();	    
+	   //Main Code (Game)
+	    
+	    System.out.println();
+	    currentNode.display();
+	    currentNode = currentNode.chooseNext();
+	    
+	    while(!(currentNode.getDecoratedNode() instanceof TerminalNode)) {
+	    	
+	    	if(!(currentNode.getDecoratedNode() instanceof DecisionNode) && !(currentNode.getDecoratedNode() instanceof ChanceNode) 
+	    			&& !(currentNode.equals(sn6)) 
+	    			&& !(currentNode.equals(sn9))
+	    			&& !(currentNode.equals(line2))
+	    			&& !(currentNode.equals(line5))
+	    			&& !(currentNode.equals(line6))
+	    			&& !(currentNode.equals(line10))
+	    			&& !(currentNode.equals(mageKeepStorm))
+	    			&& !(currentNode.equals(mageGiveStorm))
+	    			&& !(currentNode.equals(mageFollowWomen))
+	    			&& !(currentNode.equals(mageAchillesHeadChop))
+	    			&& !(currentNode.equals(mageAchillesClemence))
+	    			&& !(currentNode.equals(mageAchillesStandUp))
+	    			&& !(currentNode.equals(mageAchillesHeel))
+	    			&& !(currentNode.equals(mageThetisFight))
+	    			&& !(currentNode.equals(mageThetisMeet))
+	    			&& !(currentNode.equals(mageThetisCoupable))
+	    			&& !(currentNode.equals(mageLetStorm))
+	    			&& !(currentNode.equals(mageLetStormHera))
+	    			&& !(currentNode.equals(mageHephaWin))
+	    			&& !(currentNode.equals(mageHeraHepha))
+	    			&& !(currentNode.equals(mageAgreeHera))
+	    			&& !(currentNode.equals(mageNymphes))
+	    			&& !(currentNode.equals(mageDisagreeMiracle))
+	    			&& !(currentNode.equals(mageDisagreeHera))
+	    			&& !(currentNode.equals(mageHeraNotTalk))
+	    			&& !(currentNode.equals(mageHeraTalk))
+	    			&& !(currentNode.equals(mageFlowerPath))
+	    			&& !(currentNode.equals(mageHera))
+	    			&& !(currentNode.equals(magePosseidonTalk))
+	    			&& !(currentNode.equals(mageFountainPath))
+	    			&& !(currentNode.equals(mageJustAnOwl))
+	    			&& !(currentNode.equals(mageAthenaClue))
+	    			&& !(currentNode.equals(mageOwlScream))
+	    			&& !(currentNode.equals(mageOwlHungry))
+	    			&& !(currentNode.equals(mageOwlApproach))
+	    			&& !(currentNode.equals(mageOwlNoApproach))
+	    			&& !(currentNode.equals(mageNobody))
+	    			//InnerNodes with only one component in list nodes
+	    			) 
+	    	{
+		    	
+	    		
+	    		if(player instanceof Angel || player instanceof Demon) {
+	    			
+	    			if(currentNode.equals(line4)) {
+			    		currentNode = currentNode.chooseNext(player, people);
+			    	}else if (currentNode.equals(line7)) {
+			    		currentNode = currentNode.chooseNext(player, titans);
+			    		
+			    		if (!(currentNode instanceof TerminalNode)) {
+			    			System.out.println("Name the artefact the titans dropped to avoid a fight with the gardian angel.");
+			    			String rep = myObj.next().toLowerCase();
+				    		if(rep.equals("will")) {
+				    			player.getInventory().put(Item.WillOfOracle, 1);
+				    		}
+			    		}
+			    		
+			    	}else if (currentNode.equals(line12)) {
+			    		currentNode = currentNode.chooseNext(player, gAngel);
+			    	}else {
+			    		currentNode = currentNode.chooseNext(player, zeus);
+			    	}
+	    			
+	    		}
+	    		
+	    		if(player instanceof Human) {
+	    			
+	    			if(currentNode.equals(sn3)) {
+			    		currentNode = currentNode.chooseNext(player, cerberus);
+			    	}else if(currentNode.equals(sn4)) {
+			    		currentNode = currentNode.chooseNext(player, charon);
+			    	}else {
+			    		currentNode = currentNode.chooseNext(player, hades);
+			    	}
+	    			
+	    		}
+	    		
+	    		if(player instanceof Mage) {
+	    			
+	    			if(currentNode.equals(mageHephaistosFight)) {
+			    		currentNode = currentNode.chooseNext(player, hephaistos);
+			    	}else if(currentNode.equals(mageHeraFight)) {
+			    		currentNode = currentNode.chooseNext(player, hera);
+			    	}else if(currentNode.equals(magePosseidonFight)) {
+			    		currentNode = currentNode.chooseNext(player, posseidon);
+			    	}else if(currentNode.equals(mageAresFight)) {
+			    		currentNode = currentNode.chooseNext(player, ares);
+			    	}else if(currentNode.equals(mageAchillesFight)) {
+			    		currentNode = currentNode.chooseNext(player, achilles);
+			    	}else if(currentNode.equals(mageZeusFight)) {
+			    		currentNode = currentNode.chooseNext(player, zeus);
+			    	}else if(currentNode.equals(mageWomenFight)) {
+			    		currentNode = currentNode.chooseNext(player, mistress);
+			    	}
+	    			
+	    		}
+	    		
+		    	
+		    }else 
+		    {
+		    	
+    			if(player instanceof Angel || player instanceof Demon) {
+	    			
+	    			if(currentNode.equals(line5)) {
+	    				
+	    				if(player instanceof Demon) {
+	    					currentNode = line4;
+	    					//currentNode.display();
+	    				}else {
+	    					currentNode = line6;
+	    					//currentNode.display();
+	    				}
+
+			    	}else if (currentNode.equals(line10)) {
+			    		
+			    		currentNode = currentNode.chooseNext(player, Item.WillOfOracle);
+			    	}else 
+    		    	{
+    			    	currentNode = currentNode.chooseNext();
+
+    		    	}
+	    			
+	    		}
+    			
+    			if(player instanceof Human) {
+    				
+    				if(currentNode.equals(sn6)) {
+    		    		
+    		    		String rep = myObj.next().toLowerCase();
+    		    		if(rep.equals("obole")) {
+    		    			player.getInventory().put(Item.OboleOfCharon, 1);
+    		    		}
+    		    		
+    		    		currentNode = currentNode.chooseNext(player, Item.OboleOfCharon);
+    		    		
+    		    	}else 
+    		    	{
+    			    	currentNode = currentNode.chooseNext();
+
+    		    	}
+    			}
+    			
+    			if(player instanceof Mage) {
+    				
+    				if(currentNode.equals(mageAchillesClemence)) {
+			    		//ajouter pv
+			    		player.setHp(player.getHp()+10);
+			    	}
+    				currentNode = currentNode.chooseNext();
+    			}
+		    }
+		   
+		    
+		   currentNode.display();
+		    
+	    }
+	    
+	    myObj.close();
+	
+	}
 	
 }
 

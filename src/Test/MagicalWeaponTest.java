@@ -1,7 +1,11 @@
-package univers.tools;
+package Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
+
+import univers.tools.Attribute;
+import univers.tools.MagicalWeapon;
+import univers.tools.WeaponType;
 
 class MagicalWeaponTest {
 

@@ -33,8 +33,9 @@ public class GameGUI {
 
         label = new JLabel("Selected Item:");
 
-        saveButton = new JButton("Save");
+        setSaveButton(new JButton("Save"));
         loadButton = new JButton("Load");
+        newGameBtn = new JButton("New Game");
 
         // Create a main panel with GridLayout
         JPanel mainPanel = new JPanel(new GridLayout(3, 1));
@@ -45,19 +46,21 @@ public class GameGUI {
 
         // Create a panel for buttons with FlowLayout
         JPanel buttonPanel = new JPanel(new FlowLayout());
-        buttonPanel.add(saveButton);
+        buttonPanel.add(getSaveButton());
         buttonPanel.add(loadButton);
+        buttonPanel.add(newGameBtn);
         mainPanel.add(buttonPanel);
 
         // Add the main panel to the frame
         frame.add(mainPanel);
 
         // Add action listeners to buttons
-        saveButton.addActionListener(new ActionListener() {
+        getSaveButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
 					Serializer.serialize(game, "game.ser");
+					
 				} catch (Exception e2) {
 					System.out.println("HELP");
 				}
@@ -68,9 +71,26 @@ public class GameGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
+                	
                 	Game newGame = (Game)Serializer.deserialize("game.ser");
+                	Main.gamePlay(newGame);
+                	
 				} catch (Exception e2) {
 					System.out.println("HELP2");
+				}
+            }
+        });
+        
+     // Add action listeners to buttons
+        newGameBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                	loadButton.setEnabled(true);
+					Main.newGame();
+					
+				} catch (Exception e2) {
+					System.out.println("HELP");
 				}
             }
         });
@@ -90,6 +110,14 @@ public class GameGUI {
         // Make the frame visible
         frame.setVisible(true);
     }
+
+	public JButton getSaveButton() {
+		return saveButton;
+	}
+
+	public void setSaveButton(JButton saveButton) {
+		this.saveButton = saveButton;
+	}
     
     
     

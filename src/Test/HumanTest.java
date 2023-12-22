@@ -1,4 +1,4 @@
-package univers.personage;
+package Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -6,6 +6,9 @@ import org.junit.jupiter.api.Test;
 import univers.tools.Attribute;
 import univers.tools.MagicalWeapon;
 import univers.Familiar;
+import univers.personage.Human;
+import univers.personage.Minion;
+import univers.personage.Villain;
 import univers.tools.Material;
 import univers.tools.NonMagicalWeapon;
 import univers.tools.WeaponType;
