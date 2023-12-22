@@ -11,12 +11,21 @@ public abstract class Personage implements Fighter, Killable, Serializable{
 	private Weapon weapon;
 	private boolean alive = true;
 	
+	/**
+	 * Constructor of class Personage
+	 * @param name
+	 * @param weapon
+	 */
 	public Personage(String name, Weapon weapon) {
 		this.name = name;
 		this.hp = 100;
 		this.weapon = weapon;
 	}
 	
+	/**
+	 * this method is used to set of the personage to alive
+	 * @return 
+	 */
 	public boolean isAlive() {
 		return alive;
 	}

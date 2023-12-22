@@ -22,23 +22,27 @@ public class GameGUI {
 	}
 
 	public GameGUI() {
+		
         // Set up the frame
         frame = new JFrame("Game GUI");
         frame.setSize(300, 200);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Create components
-        //savedGamesList = new JList<Game>(listModel);
-        //savedGamesList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-
-        label = new JLabel("Selected Item:");
-
-        setSaveButton(new JButton("Save"));
+        
+        label = new JLabel("Welcome to Mythology Hero Game ! ");
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        Font font = new Font("Arial", Font.ROMAN_BASELINE, 15);
+        label.setFont(font);
+        
+        // The 3 buttons displayed
+        saveButton = new JButton("Save");
         loadButton = new JButton("Load");
         newGameBtn = new JButton("New Game");
 
         // Create a main panel with GridLayout
         JPanel mainPanel = new JPanel(new GridLayout(3, 1));
+        //mainPanel.setBackground(Color.black);
 
         // Add components to the main panel
         mainPanel.add(new JScrollPane(savedGamesList));
@@ -46,7 +50,7 @@ public class GameGUI {
 
         // Create a panel for buttons with FlowLayout
         JPanel buttonPanel = new JPanel(new FlowLayout());
-        buttonPanel.add(getSaveButton());
+        buttonPanel.add(saveButton);
         buttonPanel.add(loadButton);
         buttonPanel.add(newGameBtn);
         mainPanel.add(buttonPanel);
@@ -55,7 +59,7 @@ public class GameGUI {
         frame.add(mainPanel);
 
         // Add action listeners to buttons
-        getSaveButton().addActionListener(new ActionListener() {
+        saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
@@ -81,7 +85,7 @@ public class GameGUI {
             }
         });
         
-     // Add action listeners to buttons
+     
         newGameBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -95,51 +99,14 @@ public class GameGUI {
             }
         });
 
-        // Add list selection listener
-        //savedGamesList.addListSelectionListener(e -> updateSelectedLabel());
     }
 
-    
-
-    /*private void updateSelectedLabel() {
-        String selectedItem = itemList.getSelectedValue();
-        selectedLabel.setText("Selected Item: " + (selectedItem != null ? selectedItem : ""));
-    }*/
-
+    /**
+     * Makes the frame visible
+     */
     public void display() {
-        // Make the frame visible
         frame.setVisible(true);
     }
-
-	public JButton getSaveButton() {
-		return saveButton;
-	}
-
-	public void setSaveButton(JButton saveButton) {
-		this.saveButton = saveButton;
-	}
-    
-    
-    
-    
-    
-    
-    
-    
-    /*private void addItem() {
-    String newItem = JOptionPane.showInputDialog(frame, "Enter item:");
-    if (newItem != null && !newItem.trim().isEmpty()) {
-        listModel.addElement(newItem);
-    }
-}
-
-private void removeItem() {
-    int selectedIndex = itemList.getSelectedIndex();
-    if (selectedIndex != -1) {
-        listModel.remove(selectedIndex);
-    }
-}*/
-
-    
+   
 }
 
