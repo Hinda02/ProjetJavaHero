@@ -62,7 +62,7 @@ public class GameGUI {
 					Serializer.serialize(game, "game.ser");
 					
 				} catch (Exception e2) {
-					System.out.println("HELP");
+					System.out.println("Erreur: impossible de sauvegarder la partie de jeu en cours.");
 				}
             }
         });
@@ -76,7 +76,7 @@ public class GameGUI {
                 	Main.gamePlay(newGame);
                 	
 				} catch (Exception e2) {
-					System.out.println("HELP2");
+					System.out.println("Erreur: impossible de charger l'instance de jeu.");
 				}
             }
         });
@@ -90,7 +90,7 @@ public class GameGUI {
 					Main.newGame();
 					
 				} catch (Exception e2) {
-					System.out.println("HELP");
+					System.out.println("Erreur: impossible de lancer une nouvelle partie.");
 				}
             }
         });

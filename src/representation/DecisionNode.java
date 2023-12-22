@@ -26,6 +26,8 @@ public class DecisionNode extends InnerNode{
 			int i = 0;
 			
 			System.out.println("Saisissez le numéro de votre choix:");
+			Event nd = null;
+			int node;
 			
 	        for(Event item : this.nodes) {
               i++;
@@ -36,12 +38,23 @@ public class DecisionNode extends InnerNode{
 	        }	
 		
 	        //get the player's input
-		    Scanner myObj = new Scanner(System.in);
-		    int node;
+		    Scanner myObj;
 		    
-		    node = myObj.nextInt(); 
+		    while(true) {    
+			    try {
+			        //System.out.println("Please enter a number: ");
+			        myObj = new Scanner(System.in);
+			        node = myObj.nextInt(); 
+				    nd = this.nodes.get(node-1);
+
+			        break;
+			    }
+			    catch(Exception ex ) {
+			        System.out.println("Parmi les numéros proposés...");
+			    }
+			}
 		    
-		    return this.nodes.get(node-1);
+		    return nd;
 			
 	}
 }

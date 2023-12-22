@@ -7,6 +7,7 @@ import univers.Familiar;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -562,15 +563,27 @@ public class Main {
 	 */
 	public static  WeaponType nonMagicalWeapons(){
 		System.out.println("Choisis ton arme: (Saisissez le numéro de l'arme)");
+		WeaponType wT = null;
 		int i = 0;
 		for(WeaponType item : nonMagicalWeapons) {
 			i++;
 			System.out.println(i + ": " + item.toString());
 		}
-		
-		weaponT = myObj.nextInt(); 
-		WeaponType wT = nonMagicalWeapons.get(weaponT-1);
-		
+	
+		while(true) {    
+		    try {
+		        //System.out.println("Please enter a number: ");
+		        myObj = new Scanner(System.in);
+		        weaponT = myObj.nextInt();
+		        wT = nonMagicalWeapons.get(weaponT-1);
+
+		        break;
+		    }
+		    catch(Exception ex ) {
+		        System.out.println("Parmi les numéros proposés...");
+		    }
+		}
+
 		return wT;
 		
 	}
@@ -580,6 +593,7 @@ public class Main {
 	 */
 	public static  WeaponType magicalWeapons(){
 		System.out.println("Choisis ton arme: (Saisissez le numéro de l'arme)");
+		WeaponType wT = null;
     	
 		int i = 0;
 		for(WeaponType item : magicalWeapons) {
@@ -587,8 +601,20 @@ public class Main {
 			System.out.println(i + ": " + item.toString());
 		}
 		
-		weaponT = myObj.nextInt(); 
-		WeaponType wT = magicalWeapons.get(weaponT-1);
+		
+		while(true) {    
+		    try {
+		        //System.out.println("Please enter a number: ");
+		        myObj = new Scanner(System.in);
+		        weaponT = myObj.nextInt(); 
+				wT = magicalWeapons.get(weaponT-1);
+
+		        break;
+		    }
+		    catch(Exception ex ) {
+		        System.out.println("Parmi les numéros proposés...");
+		    }
+		}
 		
 		return wT;
 		
@@ -610,13 +636,27 @@ public class Main {
 	 */
 	public static Material nonMagicalWeaponMaterial() {
 		System.out.println("Choisis ton arme: (Saisissez le numéro de l'arme)");
+		Material wM = null;
 		int j = 0;
 		for(Material item : nonMagicalWeaponsMaterial) {
 			j++;
 			System.out.println(j + ": " + item.toString());
 		}
-		weaponM = myObj.nextInt();
-		Material wM = nonMagicalWeaponsMaterial.get(weaponM-1);
+		
+		while(true) {    
+		    try {
+		        //System.out.println("Please enter a number: ");
+		        myObj = new Scanner(System.in);
+		        weaponM = myObj.nextInt();
+				wM = nonMagicalWeaponsMaterial.get(weaponM-1);
+
+		        break;
+		    }
+		    catch(Exception ex ) {
+		        System.out.println("Parmi les numéros proposés...");
+		    }
+		}
+		
 		return wM;
 	}
 	
@@ -625,13 +665,26 @@ public class Main {
 	 */
 	public static Attribute magicalWeaponAttribute() {
 		System.out.println("Choisis l'attribut de ton arme: (Saisissez le numéro du matériel de l'arme)");
+		Attribute wA = null;
 		int j = 0;
 		for(Attribute item : magicalWeaponsAttribute) {
 			j++;
 			System.out.println(j + ": " + item.toString());
 		}
-		attribute = myObj.nextInt();
-		Attribute wA = magicalWeaponsAttribute.get(attribute-1);
+		
+		while(true) {    
+		    try {
+		        //System.out.println("Please enter a number: ");
+		        myObj = new Scanner(System.in);
+		        attribute = myObj.nextInt();
+				wA = magicalWeaponsAttribute.get(attribute-1);
+
+		        break;
+		    }
+		    catch(Exception ex ) {
+		        System.out.println("Parmi les numéros proposés...");
+		    }
+		}
 		return wA;
 	}
 	
@@ -640,15 +693,28 @@ public class Main {
 	 */
 	public static Familiar familiar() {
 		System.out.println("Choisis ton familier : ");
-		
+		Familiar familiarPlayer = null;
 		int k = 0;
 		for(Familiar item : familiar) {
 			k++;
 			System.out.println(k + ": " + item.toString());
 		}
 		
-		familiarP = myObj.nextInt();
-		Familiar familiarPlayer = familiar.get(familiarP-1);
+		
+		while(true) {    
+		    try {
+		        //System.out.println("Please enter a number: ");
+		        myObj = new Scanner(System.in);
+		        familiarP = myObj.nextInt();
+				familiarPlayer = familiar.get(familiarP-1);
+
+		        break;
+		    }
+		    catch(Exception ex ) {
+		        System.out.println("Parmi les numéros proposés...");
+		    }
+		}
+		
 		return familiarPlayer;
 	}
 	
@@ -665,7 +731,15 @@ public class Main {
 		System.out.println("Humain _ Mage _ Ange _ Demon");
 
 		//get player input
-	    choice = myObj.next().toLowerCase(); 
+		try {
+			choice = myObj.next().toLowerCase();
+			if(!(choice.equals("humain") || choice.equals("mage") || choice.equals("ange") || choice.equals("demon"))){
+				throw new Exception("Erreur de saisie. Votre personnage sera humain par défaut");
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	     
 	    
 		System.out.println("Personnalise ton personnage:");
 		System.out.println("Nom:");
@@ -736,7 +810,23 @@ public class Main {
 		    case "demon":
 		    	
 		    	System.out.println("Souhaitez-vous utiliser une arme magique ou nm (Saisissez m ou nm)");
-		    	choix = myObj.next();
+		    	//choix = myObj.next();
+		    	while(true) {    
+				    try {
+				        //System.out.println("Please enter a number: ");
+				        myObj = new Scanner(System.in);
+				        choix = myObj.next();
+				        if(!(choix.equals("m") || choix.equals("nm"))) {
+				        	throw new Exception("Saisissez 'm' ou 'nm' uniquement.");
+				        }
+
+				        break;
+				    }
+				    catch(Exception ex ) {
+				        System.out.println(ex.getMessage());
+				    }
+				}
+		    	
 		    	WeaponType wTDemon = null;
 		    	String wNDemon = null;
 		    	Weapon demonWeapon = null;
@@ -827,6 +917,7 @@ public class Main {
 	    			&& !(currentNode.equals(magePosseidonTalk))
 	    			&& !(currentNode.equals(mageFountainPath))
 	    			&& !(currentNode.equals(mageJustAnOwl))
+	    			&& !(currentNode.equals(mageNotJustAnOwl))
 	    			&& !(currentNode.equals(mageAthenaClue))
 	    			&& !(currentNode.equals(mageOwlScream))
 	    			&& !(currentNode.equals(mageOwlHungry))
