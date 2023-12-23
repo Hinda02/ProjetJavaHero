@@ -46,9 +46,9 @@ public class General extends Villain{
 		if(this.getMinion().isAlive()) {
 			if(this.getWeapon() instanceof MagicalWeapon) {
 				System.out.println("Approche que je te fasse disparaître de ce monde à l'aide de mon arme magique, " + this.getWeapon().getName());
-			}
+			}else {
 				System.out.println("Approche que je te fasse mordre la poussière avec mon arme, " + this.getWeapon().getName());
-
+			}
 		}else {
 			
 			System.out.println("Comment oses-tu t'en prendre à mon subordonné, " + this.getMinion().getName() +"\nJe promets de le venger !\nPrends garde à toi !");

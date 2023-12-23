@@ -40,8 +40,6 @@ public class Main {
 		public static String choix;
 		public static Game game;
 		
-		
-		
 		public static Weapon cerberusW;
 		public static Villain cerberus;
 		public static Weapon charonW;
@@ -206,17 +204,6 @@ public class Main {
 		
 		
         
-        
-        
-		/*SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                gg = new GameGUI();
-                gg.display();
-            }
-        });*/
-        
-		
 		//Lists
 
 		nonMagicalWeapons.add(WeaponType.Axe);
@@ -280,9 +267,6 @@ public class Main {
 				
 				
 				//Villains Mage
-				/*
-				Personage zeus = new Enemy("Zeus", Weapon.NULL, 20, 20);
-				*/
 				
 				 hephaistosW = new MagicalWeapon("Hephaistos' orb", WeaponType.Orb, Attribute.Fire);
 				 hephaistos = new Minion("Hephaistos", hephaistosW, 8);
@@ -321,7 +305,6 @@ public class Main {
 			     sn12 = new SoundNode(node12, "sword.wav");
 				
 				 node10 = new ChanceNode(10, "Hadès se tient face à vous.", Arrays.asList(sn14, sn12));
-				//Event sn10 = new SoundNode(node10, "");
 				
 				 node5 = new TerminalNode(5, "Votre diversion était parfaite. Malheureusement, vous \ntrébuchez sur une pierre et Cerberus vous attrape! Partie perdue!");
 				 sn5 = new SoundNode(node5, "die.wav");
@@ -343,54 +326,46 @@ public class Main {
 			     sn7 = new SoundNode(node7, "die.wav");
 			    
 			     node2 = new ChanceNode(2, "Vous décidez de faire diversion", Arrays.asList(sn4, sn5));
-			    //Event sn2 = new SoundNode(node2, "");
 			    
 			     node3 = new InnerNode(3, "Vous décidez de combattre Cerberus", Arrays.asList(sn6, sn7));
 			     sn3 = new SoundNode(node3, "sword.wav");
-			    //sn3 = new ImageNode(node3, "cerberus.png");
 			    
 			     node1 = new DecisionNode(1, "Vous vous retrouvez devant la tanière de Cerberus, que \nsouhaitez vous faire ? Le combattre ou Faire diversion ?", Arrays.asList(node2, sn3));
-			    //Event sn1 = new SoundNode(node1, "");
 			    
 			    
 			    // Angel, Demon -> Graph
 			    
-			     line18 = new TerminalNode(218, "Death by Zeus");
-			     line17 = new TerminalNode(217, "Saved Humanity");
-			     line14 = new TerminalNode(214, "Acquire thunderbolt");
-			     line15 = new TerminalNode(215, "Death by Oracle");
+			     line18 = new TerminalNode(218, "Vous perdez contre Zeus ! Pour punition de cette affront, votre âme connaitra le tourment éternel.");
+			     line17 = new TerminalNode(217, "Ensemble vous sauvez l'humanité en la défendant de Zeus !\nFélicitation !");
+			     line14 = new TerminalNode(214, "Vous obtenez l'éclair divin !\nSeul le destin saura ce que vous en ferez....");
+			     line15 = new TerminalNode(215, "L'Oracle a plus d'un tour dans son sac. Il vous tue aisément...");
 			    
-			     line16 = new InnerNode(216, "You decide to help fight Zeus", Arrays.asList(line17, line18));
-			     line13 = new InnerNode(213, "You decide to fight the Oracle", Arrays.asList(line14, line15));
-			     line19 = new TerminalNode(219, "Death by Gardian Angel");
+			     line16 = new InnerNode(216, "Vous décidez d'être son allié afin de battre Zeus.", Arrays.asList(line17, line18));
+			     line13 = new InnerNode(213, "Vous refusez sa proposition et le provoquez en duel !", Arrays.asList(line14, line15));
+			     line19 = new TerminalNode(219, "Peu de personnes peuvent se vanter de d'avoir été envoyé au paradis par un ange. \nVous faites désormais parti de ces quelques personnes. ");
 			    
-			     line11 = new DecisionNode(211, "Meeting the Orale: he explains Zeus' will to exterminate humans.", Arrays.asList(line16, line13));
-			     line12 = new InnerNode(212, "You need to fight the gardian angel", Arrays.asList(line11, line19));
+			     line11 = new DecisionNode(211, "Vous arrivez enfin auprès de l'Oracle. \nIl annonce un très mauvaise nouvelle : Zeus projette d'exterminer l'humanité. \nEn effet, les humains ne seraient pas dignes de sa confiance. \nIl vous propose de le rejoindre afin de sauver les Hommes.", Arrays.asList(line16, line13));
+			     line12 = new InnerNode(212, "Comme on dit : il n'y a pas assez de place pour deux Dragons dans le ciel. \nDans notre cas, il n'y a pas assez de place pour deux aventuriers dans la ville ! \nBattez-vous ! ", Arrays.asList(line11, line19));
 
-			     line10 = new InnerNode(210, "You come across a gardian angel.", Arrays.asList(line11, line12));
-			     line9 = new TerminalNode(209, "Death by Titans");
-			     line6 = new InnerNode(206, "Humans are distressed over a certain rumor circulating about Zeus.", Arrays.asList(line10));
-			     line8 = new TerminalNode(208, "Death by Humans");
+			     line10 = new InnerNode(210, "Votre chemin croise celui d'un Ange gardien, lui aussi sur la piste de l'éclair disparu. ", Arrays.asList(line11,line12));
+			     line9 = new TerminalNode(209, "Un coup! \nPuis deux !\nPuis un troisième !\nVous vous retrouvez écrasé sous les pieds des titans...\nQuelle triste fin...");
+			     line6 = new InnerNode(206, "En plus de la première rumeur, un autre rumeur circule selon laquelle \nZeus aurait perdu son éclair...\nTout le monde s'inquiète. \nQue deviendra-t-il d'eux si jamais les Dieux se mettaient en colère ?", Arrays.asList(line10));
+			     line8 = new TerminalNode(208, "Ils étaient trop nombreux... \nComme on dit : l'union fait la force ! \nIls vous ont terassé !");
 			    
-			     line7 = new InnerNode(207, "Fight the titans blocking your path.", Arrays.asList(line10, line9));
-			     line5 = new InnerNode(205, "You try to discuss  things with the humans.", Arrays.asList(line6));
-			     line4 = new InnerNode(204, "Looks like you'll have to fight your way out.", Arrays.asList(line10, line8));
+			     line7 = new InnerNode(207, "Sur votre chemin, vous tombez sur des titans ! Ce sont les pires ennemis des anges et des démons ! \nDéfendez-vous ! ", Arrays.asList(line10, line9));
+			     line5 = new InnerNode(205, "Vous interpellez des personnes dans la rue pour leur demander des informations.", Arrays.asList(line6));
+			     line4 = new InnerNode(204, "Un groupe d'hommes vous bouscule et on vous vole votre bourse. \nVous n'avez pas d'autre choix de vous battre pour la récupérer.", Arrays.asList(line10, line8));
 			    
-			     line2 = new InnerNode(202, "You decide to look for the Oracle.", Arrays.asList(line7));
-			     line3 = new DecisionNode(203, "You decide to ask the people about the rumors you heard.", Arrays.asList(line2, line4, line5));
+			     line2 = new InnerNode(202, "Vous partez à la recherche de l'Oracle.", Arrays.asList(line7));
+			     line3 = new DecisionNode(203, "Vous décider de vous informer auprès des habitants de la ville à propos des rumeurs.", Arrays.asList(line2, line4, line5));
 			    
-			     line1 = new DecisionNode(201, "Upon descension to Earth you hear rumors about an Oracle suddenly becoming overpowered.", Arrays.asList(line2, line3));
-
-
+			     line1 = new DecisionNode(201, "Lors de votre descente sur Terre, des rumeurs vous parviennent selon \nlesquelles un Oracle aurait soudainement acquérit des pouvoirs égaux à ceux d'un Dieu.", Arrays.asList(line2, line3));
 
 
-			    
-			    
 			    
 			    //Mage nodes
 			    
-			     // Mage
-			    
+			   
 			     mageKeepStormDesc = new TerminalNode(101, "Vous decidez de garder l'éclair de Zeus. \nEn effet, c'est la juste récompense pour avoir traversé tous ses obstacles. \nVotre décision plonge le monde dans le chaos et provoque la colère de Zeus et des autres Dieux. \nVous survivez au chaos grâce à l'éclair.");
 			     mageGiveStormDesc = new TerminalNode(102, "Vous rendez l'éclair divin à son propriétaire. \nAinsi, vous ramenez le calme dans la monde. \nDe plus, Zeus vous exauce votre voeu le plus cher. \nVOUS ÊTES UN GRAND HEROS !");
 			    
@@ -400,7 +375,7 @@ public class Main {
 			    
 			    //// Fountain Path
 			    
-			     mageZeusLose = new TerminalNode(105, "Vous perdez contre Zeus ! Pour punition contre cette affront, votre âme connaitra le tourment éternel.");
+			     mageZeusLose = new TerminalNode(105, "Vous perdez contre Zeus ! Pour punition cette affront, votre âme connaitra le tourment éternel.");
 			     mageZeusWin = new TerminalNode(106, "INCROYABLE ! Ce jour est à marqué d'une pierre blanche ! \nVOUS êtes le nouveau roi des Dieux");
 			     mageZeusFight = new InnerNode(107,"Vous décidez de combattre Zeus pour mettre fin à toute cette injustice en vous alliant à ses différentes maitresses!", 
 			    		Arrays.asList(	mageZeusWin,
@@ -496,11 +471,11 @@ public class Main {
 			    // Hera suite
 			    
 			     mageDisagreeMiracle = new InnerNode(147, "Une petite nymphe aquatique vous a suivi pendant tout votre périple et s'est pris d'affection pour vous ! \n Elle soigne tant bien que mal vos blessures. \n Elle vous ramène près d'une source d'eau où se trouvent d'autres nymphes. ", Arrays.asList(mageNymphes));
-			     mageHeraKill = new ChanceNode(148,"Héra est en FURIEUSE ! Elle décide de lancer ses serpents sur vous. \nIls vous mordent et vous empoisonnent.", Arrays.asList(mageDisagreeDeath,mageDisagreeMiracle));
+			     mageHeraKill = new ChanceNode(148,"Héra est FURIEUSE ! Elle décide de lancer ses serpents sur vous. \nIls vous mordent et vous empoisonnent.", Arrays.asList(mageDisagreeDeath,mageDisagreeMiracle));
 			     mageDisagreeHera = new InnerNode(149, "Vous n'êtes pas d'accord avec elle ! Bien que Zeus continue à courtiser d'autres femmes, c'est le privilège du Roi !", Arrays.asList(mageHeraKill));
 			    
 			   //Attention ! Risque de cycle ! 
-			     mageHeraNotTalk = new InnerNode(150, "Vous décidez de ne pas parler à Héra. Elle fait bient trop peur ! Vous reborussez chemin...", Arrays.asList(mageThetis)); 
+			     mageHeraNotTalk = new InnerNode(150, "Vous décidez de ne pas parler à Héra. Elle fait bient trop peur ! Vous rebroussez chemin...", Arrays.asList(mageThetis)); 
 			     mageOpinionHera = new DecisionNode(151, "Héra vous explique sa situation : \nZeus, son mari, la trompe une fois encore. \nElle ne sait plus quoi faire pour l'empêcher de continuer. \nElle veut que Zeus souffre mais ne sait pas si c'est une bonne idée de s'attirer les foudres du dieu de la foudre en ce moment...",
 			    		Arrays.asList(mageDisagreeHera,
 			    		mageAgreeHera)
@@ -519,7 +494,7 @@ public class Main {
 			    		Arrays.asList(mageHera,
 			    		mageThetisCoupable));
 			     magePosseidonLose = new TerminalNode(157, "Vous perdez contre Posséidon ! Pour punition contre cette affront, votre âme connaitra le tourment éternel.");
-			     magePosseidonFight = new InnerNode(158,"Vous décidez de combattre Posseidon", 
+			     magePosseidonFight = new InnerNode(158,"Vous décidez de combattre Posséidon", 
 			    		Arrays.asList(magePosseidonWin,
 			    		magePosseidonLose)
 			    		);
@@ -765,7 +740,7 @@ public class Main {
 		        break;
 		    }
 		    catch(Exception ex ) {
-		        System.out.println("Parmi les numéros proposés...");
+		        System.out.println("Saisissez parmi les numéros proposés...");
 		    }
 		}
 		
@@ -773,8 +748,12 @@ public class Main {
 	}
 	
 	public static void newGame() {
+<<<<<<< HEAD
 		//gg.getSaveButton().setEnabled(true);
+=======
+>>>>>>> branch 'main' of https://github.com/Hinda02/ProjetJavaHero.git
 		Event currentNode = null;
+		
 		//Intro to Story 
 		
 		System.out.println("Zeus a perdu son éclair divin ! Il est sûr que quelqu'un l'a volé pour \nréaliser de mauvais desseins. Il promet d'exaucer le voeu de celui ou celle qui le lui rendra.");
@@ -856,7 +835,7 @@ public class Main {
 				
 		    	player = new Angel(nom, angelWeapon);
 		    	
-		    	System.out.println("Vos recherches vous amènent jusque la Terre, le territoire des Humains.");
+		    	System.out.println("Vos recherches vous amènent jusque sur Terre, le territoire des Humains.");
 				currentNode = line1;
 		    	
 		    	break;
@@ -901,7 +880,7 @@ public class Main {
 				
 		    	player = new Demon(nom, demonWeapon);
 		    	
-		    	System.out.println("Vos recherches vous amènent jusque la Terre, le territoire des Humains.");
+		    	System.out.println("Vos recherches vous amènent jusque sur Terre, le territoire des Humains.");
 				currentNode = line1;
 		    	
 		    	break;
@@ -994,7 +973,7 @@ public class Main {
 			    		game.setCurrentNode(currentNode);
 			    		
 			    		if (!(currentNode instanceof TerminalNode)) {
-			    			System.out.println("Name the artefact the titans dropped to avoid a fight with the gardian angel.");
+			    			System.out.println("Saisissez le nom de l'artéfact vous permettant d'éviter un combat contre l'ange gardien : ");
 			    			String rep = myObj.next().toLowerCase();
 				    		if(rep.equals("will")) {
 				    			player.getInventory().put(Item.WillOfOracle, 1);
@@ -1003,7 +982,12 @@ public class Main {
 			    		
 			    	}else if (currentNode.equals(line12)) {
 			    		currentNode = currentNode.chooseNext(player, gAngel);
+<<<<<<< HEAD
 			    		game.setCurrentNode(currentNode);
+=======
+			    	}else if (currentNode.equals(line13)) {
+			    		currentNode = currentNode.chooseNext(player, oracle);
+>>>>>>> branch 'main' of https://github.com/Hinda02/ProjetJavaHero.git
 			    	}else {
 			    		currentNode = currentNode.chooseNext(player, zeus);
 			    		game.setCurrentNode(currentNode);

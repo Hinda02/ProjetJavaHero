@@ -63,7 +63,7 @@ public abstract class Hero extends Personage {
 		for (Item name: inventory.keySet()) {
             String key = name.toString();
             String value = inventory.get(name).toString();
-            result += "\n" + key + ", quantité  : " + value;
+            result += "\n - " + key + ", quantité : " + value;
         }
 		return result;
 	}
