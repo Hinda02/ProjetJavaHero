@@ -559,7 +559,7 @@ public class Main {
 					    }
 					}
 			     
-			     if(input.equals("r") && new File("game.ser").exists()) {
+			     if(input.equals("r") && new File("game.ser").exists() && new File("game.ser").length() > 0) {
 			    	 
 			    	 game = (Game)Serializer.deserialize("game.ser");
 				     player = game.getPlayer();
@@ -748,10 +748,7 @@ public class Main {
 	}
 	
 	public static void newGame() {
-<<<<<<< HEAD
-		//gg.getSaveButton().setEnabled(true);
-=======
->>>>>>> branch 'main' of https://github.com/Hinda02/ProjetJavaHero.git
+
 		Event currentNode = null;
 		
 		//Intro to Story 
@@ -813,7 +810,21 @@ public class Main {
 		    	
 		    case "ange":
 		    	System.out.println("Souhaitez-vous utiliser une arme magique ou nm (Saisissez m ou nm)");
-		    	choix = myObj.next();
+		    	while(true) {    
+				    try {
+				        //System.out.println("Please enter a number: ");
+				        myObj = new Scanner(System.in);
+				        choix = myObj.next();
+				        if(!(choix.equals("m") || choix.equals("nm"))) {
+				        	throw new Exception("Saisissez 'm' ou 'nm' uniquement.");
+				        }
+
+				        break;
+				    }
+				    catch(Exception ex ) {
+				        System.out.println(ex.getMessage());
+				    }
+				}
 		    	WeaponType wTAngel = null;
 		    	String wNAngel = null;
 		    	Weapon angelWeapon = null;
@@ -982,12 +993,13 @@ public class Main {
 			    		
 			    	}else if (currentNode.equals(line12)) {
 			    		currentNode = currentNode.chooseNext(player, gAngel);
-<<<<<<< HEAD
+
 			    		game.setCurrentNode(currentNode);
-=======
+
 			    	}else if (currentNode.equals(line13)) {
 			    		currentNode = currentNode.chooseNext(player, oracle);
->>>>>>> branch 'main' of https://github.com/Hinda02/ProjetJavaHero.git
+			    		game.setCurrentNode(currentNode);
+
 			    	}else {
 			    		currentNode = currentNode.chooseNext(player, zeus);
 			    		game.setCurrentNode(currentNode);
