@@ -5,6 +5,8 @@ import univers.personage.*;
 import representation.*;
 import univers.Familiar;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.InputMismatchException;
@@ -36,7 +38,7 @@ public class Main {
 		public static int familiarP;
 		public static int attribute;
 		public static String choix;
-		public static GameGUI gg;
+		public static Game game;
 		
 		
 		
@@ -196,11 +198,13 @@ public class Main {
 		
 		
 			
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException, IOException {
 		
 		
-		gg = new GameGUI();
-        gg.display();
+		/*gg = new GameGUI();
+        gg.display();*/
+		
+		
         
         
         
@@ -243,8 +247,8 @@ public class Main {
 		
 		
 		
-		Game game = new Game(player, choice); 
-		gg.setGame(game);
+		
+		//gg.setGame(game);
 		
 		
 		//Villains Human 
@@ -555,6 +559,56 @@ public class Main {
 			    		);
 		        
 		        
+			     
+			     
+			     
+			     
+			     
+			     
+			     
+			     System.out.println("Nouveau jeu: n \nReprendre la partie précédente: r");
+			     String input = null;
+			     while(true) {    
+					    try {
+					        //System.out.println("Please enter a number: ");
+					        myObj = new Scanner(System.in);
+					        input = myObj.next();
+					        if(!(input.equals("n") || input.equals("r"))) {
+					        	throw new Exception("Saisissez 'n' ou 'r'");
+					        }
+
+					        break;
+					    }
+					    catch(Exception ex ) {
+					        System.out.println(ex.getMessage());
+					    }
+					}
+			     
+			     if(input.equals("r") && new File("game.ser").exists()) {
+			    	 
+			    	 game = (Game)Serializer.deserialize("game.ser");
+				     player = game.getPlayer();
+				     choice = game.getPlayerType();
+	             	 gamePlay(game);
+	             	 
+			     }else {
+			    	 game = new Game(player, choice);
+			    	 newGame();
+			     }
+			     
+			     
+					
+					Runtime.getRuntime().addShutdownHook(new Thread() {
+					      public void run() {
+					    	  try {
+								Serializer.serialize(game, "game.ser");
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+					      }
+					    });
+					
 				
 	}
 	
@@ -719,7 +773,7 @@ public class Main {
 	}
 	
 	public static void newGame() {
-		gg.getSaveButton().setEnabled(true);
+		//gg.getSaveButton().setEnabled(true);
 		Event currentNode = null;
 		//Intro to Story 
 		
@@ -865,7 +919,7 @@ public class Main {
 		    	currentNode = node1;
 		    	break;
 	    }
-	    Game game = new Game(player, choice);
+	    game = new Game(player, choice);
 	    game.setCurrentNode(currentNode);
 	    
 	    gamePlay(game);
@@ -882,6 +936,7 @@ public class Main {
 	    System.out.println();
 	    currentNode.display();
 	    currentNode = currentNode.chooseNext();
+	    game.setCurrentNode(currentNode);
 	    
 	    while(!(currentNode.getDecoratedNode() instanceof TerminalNode)) {
 	    	
@@ -933,8 +988,10 @@ public class Main {
 	    			
 	    			if(currentNode.equals(line4)) {
 			    		currentNode = currentNode.chooseNext(player, people);
+			    		game.setCurrentNode(currentNode);
 			    	}else if (currentNode.equals(line7)) {
 			    		currentNode = currentNode.chooseNext(player, titans);
+			    		game.setCurrentNode(currentNode);
 			    		
 			    		if (!(currentNode instanceof TerminalNode)) {
 			    			System.out.println("Name the artefact the titans dropped to avoid a fight with the gardian angel.");
@@ -946,8 +1003,10 @@ public class Main {
 			    		
 			    	}else if (currentNode.equals(line12)) {
 			    		currentNode = currentNode.chooseNext(player, gAngel);
+			    		game.setCurrentNode(currentNode);
 			    	}else {
 			    		currentNode = currentNode.chooseNext(player, zeus);
+			    		game.setCurrentNode(currentNode);
 			    	}
 	    			
 	    		}
@@ -956,10 +1015,13 @@ public class Main {
 	    			
 	    			if(currentNode.equals(sn3)) {
 			    		currentNode = currentNode.chooseNext(player, cerberus);
+			    		game.setCurrentNode(currentNode);
 			    	}else if(currentNode.equals(sn4)) {
 			    		currentNode = currentNode.chooseNext(player, charon);
+			    		game.setCurrentNode(currentNode);
 			    	}else {
 			    		currentNode = currentNode.chooseNext(player, hades);
+			    		game.setCurrentNode(currentNode);
 			    	}
 	    			
 	    		}
@@ -968,18 +1030,25 @@ public class Main {
 	    			
 	    			if(currentNode.equals(mageHephaistosFight)) {
 			    		currentNode = currentNode.chooseNext(player, hephaistos);
+			    		game.setCurrentNode(currentNode);
 			    	}else if(currentNode.equals(mageHeraFight)) {
 			    		currentNode = currentNode.chooseNext(player, hera);
+			    		game.setCurrentNode(currentNode);
 			    	}else if(currentNode.equals(magePosseidonFight)) {
 			    		currentNode = currentNode.chooseNext(player, posseidon);
+			    		game.setCurrentNode(currentNode);
 			    	}else if(currentNode.equals(mageAresFight)) {
 			    		currentNode = currentNode.chooseNext(player, ares);
+			    		game.setCurrentNode(currentNode);
 			    	}else if(currentNode.equals(mageAchillesFight)) {
 			    		currentNode = currentNode.chooseNext(player, achilles);
+			    		game.setCurrentNode(currentNode);
 			    	}else if(currentNode.equals(mageZeusFight)) {
 			    		currentNode = currentNode.chooseNext(player, zeus);
+			    		game.setCurrentNode(currentNode);
 			    	}else if(currentNode.equals(mageWomenFight)) {
 			    		currentNode = currentNode.chooseNext(player, mistress);
+			    		game.setCurrentNode(currentNode);
 			    	}
 	    			
 	    		}
@@ -994,18 +1063,20 @@ public class Main {
 	    				
 	    				if(player instanceof Demon) {
 	    					currentNode = line4;
-	    					//currentNode.display();
+	    					game.setCurrentNode(currentNode);
 	    				}else {
 	    					currentNode = line6;
-	    					//currentNode.display();
+	    					game.setCurrentNode(currentNode);
 	    				}
 
 			    	}else if (currentNode.equals(line10)) {
 			    		
 			    		currentNode = currentNode.chooseNext(player, Item.WillOfOracle);
+			    		game.setCurrentNode(currentNode);
 			    	}else 
     		    	{
     			    	currentNode = currentNode.chooseNext();
+    			    	game.setCurrentNode(currentNode);
 
     		    	}
 	    			
@@ -1021,10 +1092,12 @@ public class Main {
     		    		}
     		    		
     		    		currentNode = currentNode.chooseNext(player, Item.OboleOfCharon);
+    		    		game.setCurrentNode(currentNode);
     		    		
     		    	}else 
     		    	{
     			    	currentNode = currentNode.chooseNext();
+    			    	game.setCurrentNode(currentNode);
 
     		    	}
     			}
@@ -1036,6 +1109,7 @@ public class Main {
 			    		player.setHp(player.getHp()+10);
 			    	}
     				currentNode = currentNode.chooseNext();
+    				game.setCurrentNode(currentNode);
     			}
 		    }
 		   
