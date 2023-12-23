@@ -27,9 +27,10 @@ Dans le projet, écexuter classe Main :
 ProjetJavaHero > src > main > Main 
 ~~~
 
-Une fenêtre va apparaitre. 
 
-Vous pouvez maintenant choisir entre lancer une nouvelle partie, sauvegarder votre partie ou charger une partie sauvegardée. 
+Vous pouvez maintenant choisir entre lancer une nouvelle partie ou charger une partie sauvegardée. 
+
+La partie est sauvegardée automatiquement.
 
 Les interactions se passent sur la console. 
 
